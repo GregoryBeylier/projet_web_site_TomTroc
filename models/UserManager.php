@@ -37,4 +37,14 @@ class UserManager extends DBConnect {
         $stmt->execute();
         return $stmt->fetchColumn() > 0;
     }
+
+    // Récupère un utilisateur par son email
+    public function getUserByEmail($email)
+    {
+        $sql = 'SELECT * FROM user WHERE email = :email';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

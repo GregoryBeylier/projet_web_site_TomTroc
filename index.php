@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require 'controllers/BookController.php';
 require 'controllers/UserController.php';
@@ -23,8 +24,13 @@ switch ($controller) {
                     $userController = new UserController();
                     $userController->register();
                     break;
+                case 'login':
+                    $userController = new UserController();
+                    $userController->login();
+                    break;
             }
             break;
+       
     }
 } catch (Exception $e) {
     echo 'Error: ' . $e->getMessage();

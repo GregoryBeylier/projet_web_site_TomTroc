@@ -77,4 +77,42 @@ class UserController
         }
     }
 
+        // Connection de l'utilisateur
+        public function login() 
+        {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email = htmlspecialchars($_POST['email']);
+                $password = htmlspecialchars($_POST['password']);
+
+                $error = [];
+
+                if (empty($email) || empty($password)) {
+                    $error['email'] = 'L\'email est requis.';
+                    $error['password'] = 'Le mot de passe est requis.';
+                }
+
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $error['email'] = 'L\'adresse email n\'est pas valide.';
+                }
+
+                if (!empty($error)) {
+                    require __DIR__ . '/../views/user/login.php';
+                    return;
+                }
+
+                $user = $this->userManager->getUserByEmail($email);
+
+                if ($user && password_verify($password, $user['password'])) {
+                    $_SESSION['user_id'] = $user['id'];
+                    header('Location: index.php');
+                    exit();
+                } else {
+                    $error['general'] = 'Email ou mot de passe incorrect.';
+                    require __DIR__ . '/../views/user/login.php';
+                    return;
+                }
+            } else {
+                require __DIR__ . '/../views/user/login.php';
+            }
+        }
 }
