@@ -47,4 +47,43 @@ class UserManager extends DBConnect {
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    // Récupère un utilisateur par son ID
+    public function getUserById($id)
+    {
+        $sql = 'SELECT * FROM user WHERE id = :id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    // Met à jour les informations d'un utilisateur
+    public function updateUser($id, $email, $password, $pseudo)
+    {
+       if (!empty($password))
+        {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $sql = 'UPDATE user SET email = :email, password = :password, pseudo = :pseudo WHERE id = :id';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password', $hashedPassword);
+            $stmt->bindParam(':pseudo', $pseudo);
+            $stmt->bindParam(':id', $id);
+        } 
+        else 
+        {
+            $sql = 'UPDATE user SET email = :email, pseudo = :pseudo WHERE id = :id';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':pseudo', $pseudo);
+            $stmt->bindParam(':id', $id);
+        }
+        
+        return $stmt->execute();
+
+    }
+        
+    
+
 }

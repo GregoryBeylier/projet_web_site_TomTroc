@@ -115,4 +115,55 @@ class UserController
                 require __DIR__ . '/../views/user/login.php';
             }
         }
+         
+        // Afficher le profil de l'utilisateur
+        public function profile()
+        {
+            $id = $_SESSION['user_id'];
+            $user = $this->userManager->getUserById($id);
+            require __DIR__ . '/../views/user/profile.php';
+        }
+
+        // Mettre à jour le profil de l'utilisateur
+        public function updateProfile()
+        {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $id = $_SESSION['user_id'];
+                $email = htmlspecialchars($_POST['email']);
+                $password = htmlspecialchars($_POST['password']);
+                $pseudo = htmlspecialchars($_POST['pseudo']);
+
+                $error = [];
+
+                if (empty($email) || empty($pseudo)) {
+                    $error['email'] = 'L\'email est requis.';
+                    $error['pseudo'] = 'Le pseudo est requis.';
+                }
+
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $error['email'] = 'L\'adresse email n\'est pas valide.';
+                }
+
+                if (!empty($error)) {
+                    require __DIR__ . '/../views/user/profile.php';
+                    return;
+                }
+
+                if ($this->userManager->updateUser($id, $email, $password, $pseudo)) {
+                    header('Location: index.php?controller=user&action=profile');
+                    exit();
+                } else {
+                    $error['general'] = 'Une erreur est survenue lors de la mise à jour du profil.';
+                    $user = $this->userManager->getUserById($id);
+                    require __DIR__ . '/../views/user/profile.php';
+                    return;
+                }
+            } else {
+                header('Location: index.php?controller=user&action=profile');
+                exit();
+            }
+
+            
+        }
+
 }
