@@ -13,12 +13,13 @@
         <?php
         $photo = !empty($user['profile_photo']) ? $user['profile_photo'] : 'default_profile.png';
         ?>
+        <a href="index.php?controller=user&action=logout">Se déconnecter</a><br><br>
         <img src="<?php echo htmlspecialchars($photo); ?>" alt="Photo de profil" />
         <p>Pseudonyme : <?php echo htmlspecialchars($user['pseudo']); ?></p>
         <p>membre depuis le : <?php echo date('d/m/Y', strtotime($user['created_at'])); ?></p>
     </div>
 
-    <form action="index.php?controller=user&action=updateProfile" method="post">
+    <form action="index.php?controller=user&action=updateProfile" method="post"> 
         
         <input type = "email" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
 
@@ -48,7 +49,7 @@
         
         </tr>
     
-    </thead>
+    </thead><br><br>
         <tbody>
             <?php foreach ($books as $book): ?>
                 <tr>

@@ -33,6 +33,10 @@ switch ($controller)
                         $userController = new UserController();
                         $userController->login();
                         break;
+                    case 'logout':
+                        $userController = new UserController();
+                        $userController->logout();
+                        break;
                     case 'updateProfile':
                         $userController = new UserController();
                         $userController->updateProfile();

@@ -118,6 +118,14 @@ class UserController
                 require __DIR__ . '/../views/user/login.php';
             }
         }
+
+        // Déconnexion de l'utilisateur
+        public function logout()
+        {
+            session_destroy();
+            header('Location: index.php');
+            exit();
+        }
          
         // Afficher le profil de l'utilisateur
         public function profile()
