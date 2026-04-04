@@ -7,6 +7,7 @@ require 'controllers/UserController.php';
 $controller = $_GET['controller'] ?? 'book';
 $action = $_GET['action'] ?? 'list';
 
+
 try {
     
 switch ($controller) 
@@ -17,6 +18,10 @@ switch ($controller)
                     case 'list':
                         $bookController = new BookController();
                         $bookController->listBooks();
+                        break;
+                    case 'library':
+                        $bookController = new BookController();
+                        $bookController->library();
                         break;
                 }
             break;
