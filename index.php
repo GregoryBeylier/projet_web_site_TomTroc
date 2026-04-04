@@ -19,10 +19,6 @@ switch ($controller)
                         $bookController = new BookController();
                         $bookController->listBooks();
                         break;
-                    case 'library':
-                        $bookController = new BookController();
-                        $bookController->library();
-                        break;
                 }
             break;
 

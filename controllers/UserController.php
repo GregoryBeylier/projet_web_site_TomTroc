@@ -1,14 +1,17 @@
 <?php 
 
 require_once __DIR__ . '/../models/UserManager.php';
+require_once __DIR__ . '/../models/BookManager.php';
 
 class UserController
 {
     private $userManager;
+    private $bookManager;
 
     public function __construct()
     {
         $this->userManager = new UserManager();
+        $this->bookManager = new BookManager();
     }
 
     public function register()
@@ -121,7 +124,9 @@ class UserController
         {
             $id = $_SESSION['user_id'];
             $user = $this->userManager->getUserById($id);
+            $books = $this->bookManager->getBooksByUserId($id);
             require __DIR__ . '/../views/user/profile.php';
+
         }
 
         // Mettre à jour le profil de l'utilisateur
