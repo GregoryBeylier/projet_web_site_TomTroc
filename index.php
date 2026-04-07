@@ -1,9 +1,12 @@
 <?php
 session_start();
-
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+// Inclure les contrôleurs nécessaires
 require 'controllers/BookController.php';
 require 'controllers/UserController.php';
 
+// Récupérer les paramètres de la requête
 $controller = $_GET['controller'] ?? 'book';
 $action = $_GET['action'] ?? 'list';
 
@@ -27,7 +30,18 @@ switch ($controller)
                         $bookController = new BookController();
                         $bookController->detail();
                         break;
-                    
+                    case 'add':
+                        $bookController = new BookController();
+                        $bookController->addBook();
+                        break;
+                    case 'edit':
+                        $bookController = new BookController();
+                        $bookController->editBook();
+                        break;
+                    case 'delete': 
+                        $bookController = new BookController();
+                        $bookController->deleteBook();
+                        break;
                 }
             break;
 

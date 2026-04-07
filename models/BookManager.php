@@ -50,4 +50,41 @@ class BookManager extends DBConnect
         $book = $stmt->fetch(PDO::FETCH_ASSOC);
         return $book;
     }
+
+    // Méthode pour ajouter un nouveau livre
+    public function addBook($title, $picture, $author, $description, $status, $user_id)
+    {
+        $sql = 'INSERT INTO book (title, picture, author, description, status, user_id) VALUES (:title, :picture, :author, :description, :status, :user_id)';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':picture', $picture);
+        $stmt->bindParam(':author', $author);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':status', $status, PDO::PARAM_INT);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
+    // Méthode pour mettre à jour un livre existant
+    public function updateBook($title, $picture, $author, $description, $status, $id)
+    {
+        $sql = 'UPDATE book SET title = :title, picture = :picture, author = :author, description = :description, status = :status WHERE id = :id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':picture', $picture);
+        $stmt->bindParam(':author', $author);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':status', $status, PDO::PARAM_INT);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
+    // Méthode pour supprimer un livre
+    public function deleteBook($id)
+    {
+        $sql = 'DELETE FROM book WHERE id = :id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }
