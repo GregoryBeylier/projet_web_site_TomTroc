@@ -23,6 +23,11 @@ switch ($controller)
                         $bookController = new BookController();
                         $bookController->listAvailableBooks();
                         break;
+                    case 'detail':
+                        $bookController = new BookController();
+                        $bookController->detail();
+                        break;
+                    
                 }
             break;
 

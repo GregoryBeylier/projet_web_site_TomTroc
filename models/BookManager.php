@@ -40,4 +40,14 @@ class BookManager extends DBConnect
         return $books;
     }
     
+    // Méthode pour récupérer les détails d'un livre spécifique
+    public function getBookById($id)
+    {
+        $sql = 'SELECT * FROM book WHERE id = :id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $book = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $book;
+    }
 }

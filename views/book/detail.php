@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail du livre</title>
+</head>
+<body>
+    <h1><?php echo $book['title']; ?></h1>
+    <p><strong>Auteur :</strong> <?php echo $book['author']; ?></p>
+    <p><strong>Description :</strong> <?php echo $book['description']; ?></p>
+    <img src="<?php echo $book['picture']; ?>" alt="couverture">
+    <p>Propriétaire : <?php echo $user['pseudo']; ?></p>
+    <button><a href=" ">Envoyer un message</a></button>
+</body>
+</html>
