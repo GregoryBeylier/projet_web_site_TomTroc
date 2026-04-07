@@ -30,5 +30,14 @@ class BookManager extends DBConnect
         $books = $stmt->fetchALL(PDO::FETCH_ASSOC);
         return $books;
     }
+
+    // Méthode pour récupérer les livres disponibles (status = 1)
+    public function getAvailableBook()
+    {
+        $sql = 'SELECT * FROM book WHERE status = 1';
+        $stmt = $this->pdo->query($sql);
+        $books = $stmt->fetchALL(PDO::FETCH_ASSOC);
+        return $books;
+    }
     
 }
