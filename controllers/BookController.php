@@ -119,9 +119,11 @@ class BookController
             $title = htmlspecialchars($_POST['title']);
             $author = htmlspecialchars($_POST['author']);
             $description = htmlspecialchars($_POST['description']);
-            $status = isset($_POST['status']) ? 1 : 0; // Par exemple, un checkbox pour le statut
+            $status = ($_POST['status']); // Par exemple, un checkbox pour le statut
+
             $picture = $_FILES['picture']['name']; // Nom du fichier téléchargé
 
+            
             $error = [];
 
             // Validation des données

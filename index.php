@@ -1,14 +1,13 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+
 // Inclure les contrôleurs nécessaires
 require 'controllers/BookController.php';
 require 'controllers/UserController.php';
 
 // Récupérer les paramètres de la requête
 $controller = $_GET['controller'] ?? 'book';
-$action = $_GET['action'] ?? 'list';
+$action = $_GET['action'] ?? 'availableBooks';
 
 
 try {
@@ -67,6 +66,10 @@ switch ($controller)
                     case 'profile':
                         $userController = new UserController();
                         $userController->profile();
+                        break;
+                    case 'showProfile':
+                        $userController = new UserController();
+                        $userController->showProfile();
                         break;
                 }
             break;

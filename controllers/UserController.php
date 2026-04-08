@@ -119,13 +119,26 @@ class UserController
         exit();
     }
 
-    // Afficher le profil de l'utilisateur
+    // Afficher le profil de l'utilisateur priver
     public function profile()
     {
         $id = $_SESSION['user_id'];
         $user = $this->userManager->getUserById($id);
         $books = $this->bookManager->getBooksByUserId($id);
         require __DIR__ . '/../views/user/profile.php';
+    }
+
+    public function showProfile()
+    {
+        $id = $_GET['id'] ?? null;
+        if ($id) {
+            $user = $this->userManager->getUserById($id);
+            $books = $this->bookManager->getBooksByUserId($id);
+            require __DIR__ . '/../views/user/show_profile.php';
+        } else {
+            header('Location: index.php');
+            exit();
+        }
     }
 
     // Mettre à jour le profil de l'utilisateur

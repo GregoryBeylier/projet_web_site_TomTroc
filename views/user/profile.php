@@ -57,7 +57,7 @@
                     <td><?php echo $book['title']; ?></td>
                     <td><?php echo $book['author']; ?></td>
                     <td><?php echo $book['description']; ?></td>
-                    <td><?php echo $book['status']; ?></td>
+                    <td><?php echo $book['status'] == 1 ? 'Disponible' : 'Non disponible'; ?></td>
                     <td>
                         <a href="index.php?controller=book&action=edit&id=<?php echo $book['id']; ?>">Modifier</a>
                         <a href="index.php?controller=book&action=delete&id=<?php echo $book['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">Supprimer</a>

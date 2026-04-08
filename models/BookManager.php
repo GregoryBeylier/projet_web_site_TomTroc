@@ -93,7 +93,7 @@ class BookManager extends DBConnect
     {
         $searchTerm = '%' . $search . '%'; // Ajouter des jokers pour la recherche partielle
 
-        $sql = 'SELECT * FROM book WHERE title LIKE :search';
+        $sql = 'SELECT * FROM book WHERE title LIKE :search AND status = 1'; // Rechercher uniquement les livres disponibles
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':search', $searchTerm);
         $stmt->execute();

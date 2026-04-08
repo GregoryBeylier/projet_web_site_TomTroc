@@ -10,7 +10,7 @@
     <p><strong>Auteur :</strong> <?php echo $book['author']; ?></p>
     <p><strong>Description :</strong> <?php echo $book['description']; ?></p>
     <img src="<?php echo $book['picture']; ?>" alt="couverture">
-    <p>Propriétaire : <?php echo $user['pseudo']; ?></p>
+    <p><a href="index.php?controller=user&action=showProfile&id=<?php echo $book['user_id']; ?>">Propriétaire : <?php echo $user['pseudo']; ?></a></p>
     <button><a href=" ">Envoyer un message</a></button>
 </body>
 </html>
