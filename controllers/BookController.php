@@ -33,7 +33,13 @@ class BookController
     // Nouvelle méthode pour afficher les livres disponibles
     public function listAvailableBooks()
     {
-        $books = $this->bookManager->getAvailableBook();
+        $search = $_GET['search'] ?? null; // Récupérer le terme de recherche depuis la requête GET
+        if ($search) {
+            $books = $this->bookManager->searchBooks($search); // Appeler une méthode de recherche dans le BookManager
+        } else {
+            $books = $this->bookManager->getAvailableBook(); // Afficher tous les livres disponibles si aucun terme de recherche n'est fourni
+        }
+
         require __DIR__ . '/../views/book/list.php';
     }
 

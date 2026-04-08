@@ -87,4 +87,17 @@ class BookManager extends DBConnect
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    // Méthode de moteur de recherche pour les livres
+    public function searchBooks($search)
+    {
+        $searchTerm = '%' . $search . '%'; // Ajouter des jokers pour la recherche partielle
+
+        $sql = 'SELECT * FROM book WHERE title LIKE :search';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':search', $searchTerm);
+        $stmt->execute();
+        $books = $stmt->fetchALL(PDO::FETCH_ASSOC);
+        return $books;
+    }
 }
