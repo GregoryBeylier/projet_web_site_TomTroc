@@ -63,6 +63,7 @@ class BookController
     // Méthode pour ajouter un nouveau livre 
     public function addBook()
     {
+        // Vérifier si l'utilisateur est connecté
         if (!isset($_SESSION['user_id'])) {
             header('Location: index.php?controller=user&action=login');
             exit();

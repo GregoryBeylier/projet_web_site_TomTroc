@@ -11,6 +11,6 @@
     <p><strong>Description :</strong> <?php echo $book['description']; ?></p>
     <img src="<?php echo $book['picture']; ?>" alt="couverture">
     <p><a href="index.php?controller=user&action=showProfile&id=<?php echo $book['user_id']; ?>">Propriétaire : <?php echo $user['pseudo']; ?></a></p>
-    <button><a href=" ">Envoyer un message</a></button>
+    <button><a href="index.php?controller=message&action=thread&id=<?php echo $book['user_id']; ?>">Envoyer un message</a></button>
 </body>
 </html>
