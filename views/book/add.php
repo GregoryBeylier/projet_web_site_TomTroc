@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un livre</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
+    <?php require __DIR__ . '/../templates/header.php'; ?>
     <main>
         <h1>Ajouter un livre</h1>
 
-        <form action="index.php?controller=book&action=add" method ="post" enctype="multipart/form-data">
-           <label for="image">Image du livre :</label>
+        <form action="index.php?controller=book&action=add" method="post" enctype="multipart/form-data">
+            <label for="image">Image du livre :</label>
             <input type="file" id="image" name="picture" required><br>
-        
+
             <label for="title">Titre :</label>
             <input type="text" id="title" name="title" required><br>
 
@@ -32,6 +35,9 @@
             <button type="submit">Ajouter le livre</button>
         </form>
 
+
     </main>
+    <?php require __DIR__ . '/../templates/footer.php'; ?>
 </body>
+
 </html>

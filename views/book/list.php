@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <body>
-    <h1>acceuille</h1>
+    <?php require __DIR__ . '/../templates/header.php'; ?>
+
 
     <?php if (empty($books)) : ?>
         <p>Aucun livre trouvé.</p>
@@ -21,6 +23,9 @@
         <p><?php echo $book['status'] == 1 ? 'Disponible' : 'Non disponible'; ?></p>
         <a href="index.php?controller=book&action=detail&id=<?php echo $book['id']; ?>">Voir le details</a>
     <?php endforeach; ?>
-    
+    <?php require __DIR__ . '/../templates/footer.php'; ?>
+
+
 </body>
+
 </html>

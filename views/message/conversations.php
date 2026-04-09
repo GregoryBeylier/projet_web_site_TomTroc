@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    <?php require __DIR__ . '/../templates/header.php'; ?>
+
     <h1>Conversations</h1>
 
     <?php foreach ($conversations as $conversation): ?>
@@ -17,6 +19,8 @@
             <img src="<?= $conversation['profile_photo'] ?? 'default_profile.png' ?>" alt="photo">
         </div>
     <?php endforeach; ?>
+    <?php require __DIR__ . '/../templates/footer.php'; ?>
+
 </body>
 
 </html>

@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <?php require __DIR__ . '/../templates/header.php'; ?>
 
     <div>
         <?php
@@ -51,6 +52,8 @@
 
         </tbody>
     </table>
+    <?php require __DIR__ . '/../templates/footer.php'; ?>
+
 </body>
 
 </html>

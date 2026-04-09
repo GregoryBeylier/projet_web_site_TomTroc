@@ -122,6 +122,11 @@ class UserController
     // Afficher le profil de l'utilisateur priver
     public function profile()
     {
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: index.php?controller=user&action=login');
+            exit();
+        }
+        
         $id = $_SESSION['user_id'];
         $user = $this->userManager->getUserById($id);
         $books = $this->bookManager->getBooksByUserId($id);
