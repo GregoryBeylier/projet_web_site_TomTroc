@@ -144,6 +144,12 @@ class UserController
     // Mettre à jour le profil de l'utilisateur
     public function updateProfile()
     {
+        // Vérifier si l'utilisateur est connecté
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: index.php?controller=user&action=login');
+            exit();
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_SESSION['user_id'];
             $email = htmlspecialchars($_POST['email']);

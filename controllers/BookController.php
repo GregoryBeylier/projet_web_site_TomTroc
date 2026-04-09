@@ -53,10 +53,10 @@ class BookController
                 $user = $this->userManager->getUserById($book['user_id']);
                 require __DIR__ . '/../views/book/detail.php';
             } else {
-                echo 'Livre non trouvé.';
+                echo 'Livre non trouvé';
             }
         } else {
-            echo 'ID du livre manquant.';
+            echo 'ID du livre manquant';
         }
     }
 
@@ -74,17 +74,17 @@ class BookController
             $title = htmlspecialchars($_POST['title']);
             $author = htmlspecialchars($_POST['author']);
             $description = htmlspecialchars($_POST['description']);
-            $status = isset($_POST['status']) ? 1 : 0; // Par exemple, un checkbox pour le statut
-            $user_id = $_SESSION['user_id']; // Assurez-vous que l'utilisateur est connecté
-            $picture = $_FILES['picture']['name']; // Nom du fichier téléchargé
+            $status = isset($_POST['status']) ? $_POST['status'] : 0; 
+            $user_id = $_SESSION['user_id']; 
+            $picture = $_FILES['picture']['name']; 
 
             $error = [];
 
             // Validation des données
             if ((empty($title)) || empty($author) || empty($description)) {
-                $error['titre'] = 'Le titre est requis.';
-                $error['author'] = 'L\'auteur est requis.';
-                $error['description'] = 'La description est requise.';
+                $error['titre'] = 'Le titre est requis';
+                $error['author'] = 'L\'auteur est requis';
+                $error['description'] = 'La description est requise';
             }
 
             if (!empty($error)) {
@@ -98,7 +98,7 @@ class BookController
                 header('Location: index.php?controller=book&action=list');
                 exit();
             } else {
-                echo 'Erreur lors de l\'ajout du livre.';
+                echo 'Erreur lors de l\'ajout du livre';
             }
         } else {
             // afficher le formulaire d'ajout de livre
@@ -114,24 +114,25 @@ class BookController
             exit();
         }
 
-        $id = $_GET['id'] ?? null; // ← change juste le nom ici
+        $id = $_GET['id'] ?? null; 
 
+        // Récupérer les données du formulaire de modification de livre
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $title = htmlspecialchars($_POST['title']);
             $author = htmlspecialchars($_POST['author']);
             $description = htmlspecialchars($_POST['description']);
-            $status = ($_POST['status']); // Par exemple, un checkbox pour le statut
+            $status = isset($_POST['status']) ? $_POST['status'] : 0;
 
-            $picture = $_FILES['picture']['name']; // Nom du fichier téléchargé
+            $picture = $_FILES['picture']['name']; 
 
             
             $error = [];
 
             // Validation des données
             if ((empty($title)) || empty($author) || empty($description)) {
-                $error['titre'] = 'Le titre est requis.';
-                $error['author'] = 'L\'auteur est requis.';
-                $error['description'] = 'La description est requise.';
+                $error['titre'] = 'Le titre est requis';
+                $error['author'] = 'L\'auteur est requis';
+                $error['description'] = 'La description est requise';
             }
 
             if (!empty($error)) {
@@ -145,7 +146,7 @@ class BookController
                 header('Location: index.php?controller=book&action=list');
                 exit();
             } else {
-                echo 'Erreur lors de la modification du livre.';
+                echo 'Erreur lors de la modification du livre';
             }
         } else {
             // afficher le formulaire de modification de livre
@@ -153,7 +154,7 @@ class BookController
             if ($book) {
                 require __DIR__ . '/../views/book/edit.php';
             } else {
-                echo 'Livre non trouvé.';
+                echo 'Livre non trouvé';
             }
         }
     }
@@ -172,10 +173,10 @@ class BookController
                 header('Location: index.php?controller=book&action=list');
                 exit();
             } else {
-                echo 'Erreur lors de la suppression du livre.';
+                echo 'Erreur lors de la suppression du livre';
             }
         } else {
-            echo 'ID du livre manquant.';
+            echo 'ID du livre manquant';
         }
     }
 }

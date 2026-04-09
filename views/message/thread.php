@@ -8,7 +8,7 @@
 <body>
 <?php foreach ($messages as $message): ?>
     <div>
-        <p><strong><?= htmlspecialchars($message['sender_id']) ?>:</strong> <?= htmlspecialchars($message['content']) ?></p>
+        <p><strong><?= htmlspecialchars($message['pseudo']) ?>:</strong> <?= htmlspecialchars($message['content']) ?></p>
         <p><small><?= htmlspecialchars($message['created_at']) ?></small></p>
     </div>
 <?php endforeach; ?>
