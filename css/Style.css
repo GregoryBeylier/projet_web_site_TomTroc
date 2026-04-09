@@ -1,0 +1,47 @@
+.logo {
+    margin : 150px;
+}
+
+
+.header {
+    background-color: #F5F3EF;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.header_nav {
+    display: flex;
+    justify-content: space-between;
+    width : 100%
+}
+
+.header_link {
+    display :flex;
+    list-style: none;
+    color: #292929 ;
+    flex-direction: row;
+    padding-left : 78px;
+    padding-right : 150px;
+    font-family : "inter";
+}
+
+.header_link_left{
+    gap : 44px;
+}
+
+.header_link_right{
+    gap : 58px
+}
+
+a{
+     text-decoration : none;
+     color: black;
+     
+}
+
+.active a {
+    font-weight:bold;
+}
