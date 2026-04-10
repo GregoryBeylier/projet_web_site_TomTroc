@@ -15,13 +15,13 @@ class BookController
         $this->userManager = new UserManager();
     }
 
-    // Méthode pour afficher la liste de tous les livres
-    public function listBooks()
-    {
-        $books = $this->bookManager->getAllBooks();
-        require __DIR__ . '/../views/book/list.php';
-    }
+    //
 
+   public function home()
+   {
+       require __DIR__ . '/../views/home.php';
+   }
+    
     // Nouvelle méthode pour afficher les livres d'un utilisateur spécifique
     public function library()
     {

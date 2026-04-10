@@ -1,3 +1,5 @@
+
+
 .logo {
     margin : 150px;
 }
@@ -15,7 +17,7 @@
 .header_nav {
     display: flex;
     justify-content: space-between;
-    width : 100%
+    width : 100%;
 }
 
 .header_link {
@@ -26,22 +28,36 @@
     padding-left : 78px;
     padding-right : 150px;
     font-family : "inter";
+    font-size : 14px;
 }
 
-.header_link_left{
+.header_link_left {
     gap : 44px;
 }
 
-.header_link_right{
-    gap : 58px
+.header_link_right {
+    gap : 58px;
 }
 
-a{
+a {
      text-decoration : none;
      color: black;
-     
 }
 
-.active a {
-    font-weight:bold;
+.footer {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: flex-end;
+    align-items : flex-end;
+    flex-direction: row;
 }
+
+.container{
+    display: flex;
+    padding-right: 46px;
+    gap : 40px;
+    font-family: "inter";
+    font-size: 12px;
+}
+
+

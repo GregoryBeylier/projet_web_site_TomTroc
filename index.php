@@ -8,7 +8,7 @@ require 'controllers/MessageController.php';
 
 // Récupérer les paramètres de la requête
 $controller = $_GET['controller'] ?? 'book';
-$action = $_GET['action'] ?? 'availableBooks';
+$action = $_GET['action'] ?? 'home';
 
 
 try {
@@ -16,9 +16,9 @@ try {
     switch ($controller) {
         case 'book':
             switch ($action) {
-                case 'list':
+                case 'home':
                     $bookController = new BookController();
-                    $bookController->listBooks();
+                    $bookController->home();
                     break;
                 case 'availableBooks':
                     $bookController = new BookController();
