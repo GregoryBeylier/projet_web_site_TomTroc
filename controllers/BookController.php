@@ -17,11 +17,11 @@ class BookController
 
     //
 
-   public function home()
-   {
-       require __DIR__ . '/../views/home.php';
-   }
-    
+    public function home()
+    {
+        require __DIR__ . '/../views/home.php';
+    }
+
     // Nouvelle méthode pour afficher les livres d'un utilisateur spécifique
     public function library()
     {
@@ -74,9 +74,9 @@ class BookController
             $title = htmlspecialchars($_POST['title']);
             $author = htmlspecialchars($_POST['author']);
             $description = htmlspecialchars($_POST['description']);
-            $status = isset($_POST['status']) ? $_POST['status'] : 0; 
-            $user_id = $_SESSION['user_id']; 
-            $picture = $_FILES['picture']['name']; 
+            $status = isset($_POST['status']) ? $_POST['status'] : 0;
+            $user_id = $_SESSION['user_id'];
+            $picture = $_FILES['picture']['name'];
 
             $error = [];
 
@@ -114,7 +114,7 @@ class BookController
             exit();
         }
 
-        $id = $_GET['id'] ?? null; 
+        $id = $_GET['id'] ?? null;
 
         // Récupérer les données du formulaire de modification de livre
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -123,9 +123,9 @@ class BookController
             $description = htmlspecialchars($_POST['description']);
             $status = isset($_POST['status']) ? $_POST['status'] : 0;
 
-            $picture = $_FILES['picture']['name']; 
+            $picture = $_FILES['picture']['name'];
 
-            
+
             $error = [];
 
             // Validation des données

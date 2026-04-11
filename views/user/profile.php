@@ -16,21 +16,28 @@
 
     <div>
         <?php
-        $photo = !empty($user['profile_photo']) ? $user['profile_photo'] : 'default_profile.png';
+        $photo = !empty($user->getProfilePhoto()) ? $user->getProfilePhoto() : 'default_profile.png';
         ?>
         <a href="index.php?controller=user&action=logout">Se déconnecter</a><br><br>
-        <img src="<?php echo htmlspecialchars($photo); ?>" alt="Photo de profil" />
-        <p>Pseudonyme : <?php echo htmlspecialchars($user['pseudo']); ?></p>
-        <p>membre depuis le : <?php echo date('d/m/Y', strtotime($user['created_at'])); ?></p>
+        <img src="<?php echo htmlspecialchars($photo); ?>" alt="Photo de profil" /><br>
+        <label for="image">Mdifier</label>
+        <input type="file" id="image" name="image"><br>
+
+        <?php if (isset($error['image'])) : ?>
+            <span style="color: red; display: block;"><?php echo $error['image']; ?></span>
+        <?php endif; ?>
+
+        <p>Pseudonyme : <?php echo htmlspecialchars($user->getPseudo()); ?></p>
+        <p>membre depuis le : <?php echo date('d/m/Y', strtotime($user->getCreatedAt())); ?></p>
     </div>
 
     <form action="index.php?controller=user&action=updateProfile" method="post">
 
-        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
+        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user->getEmail()); ?>">
 
         <input type="password" id="password" name="password" placeholder="Nouveau mot de passe">
 
-        <input type="text" id="pseudo" name="pseudo" value="<?php echo htmlspecialchars($user['pseudo']); ?>">
+        <input type="text" id="pseudo" name="pseudo" value="<?php echo htmlspecialchars($user->getPseudo()); ?>">
 
         <button type="submit">enrengistré</button>
     </form>
@@ -58,14 +65,14 @@
         <tbody>
             <?php foreach ($books as $book): ?>
                 <tr>
-                    <td><img src="<?php echo $book['picture']; ?>" alt="Couverture du livre" width="100" /></td>
-                    <td><?php echo $book['title']; ?></td>
-                    <td><?php echo $book['author']; ?></td>
-                    <td><?php echo $book['description']; ?></td>
-                    <td><?php echo $book['status'] == 1 ? 'Disponible' : 'Non disponible'; ?></td>
+                    <td><img src="<?php echo $book->getPicture(); ?>" alt="Couverture du livre" width="100" /></td>
+                    <td><?php echo $book->getTitle(); ?></td>
+                    <td><?php echo $book->getAuthor(); ?></td>
+                    <td><?php echo $book->getDescription(); ?></td>
+                    <td><?php echo $book->getStatus() == 1 ? 'Disponible' : 'Non disponible'; ?></td>
                     <td>
-                        <a href="index.php?controller=book&action=edit&id=<?php echo $book['id']; ?>">Modifier</a>
-                        <a href="index.php?controller=book&action=delete&id=<?php echo $book['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">Supprimer</a>
+                        <a href="index.php?controller=book&action=edit&id=<?php echo $book->getId(); ?>">Modifier</a>
+                        <a href="index.php?controller=book&action=delete&id=<?php echo $book->getId(); ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">Supprimer</a>
                     </td>
 
                 </tr>

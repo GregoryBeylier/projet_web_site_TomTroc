@@ -1,5 +1,7 @@
 <?php
-require __DIR__ . '/../config/DBConnect.php';
+require_once __DIR__ . '/../config/DBConnect.php';
+require_once __DIR__ . '/../models/Book.php';
+
 
 class BookManager extends DBConnect
 {
@@ -16,18 +18,24 @@ class BookManager extends DBConnect
     {
         $sql = 'SELECT * FROM book';
         $stmt = $this->pdo->query($sql);
-        $books = $stmt->fetchALL(PDO::FETCH_ASSOC);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
+        $books = $stmt->fetchAll();
+
         return $books;
     }
 
     // Méthode pour récupérer les livres d'un utilisateur spécifique
     public function getBooksByUserId($user_id)
-     {
+    {
         $sql = 'SELECT * FROM book WHERE user_id = :user_id';
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
-        $books = $stmt->fetchALL(PDO::FETCH_ASSOC);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
+        $books = $stmt->fetchAll();
+
+
+
         return $books;
     }
 
@@ -36,10 +44,12 @@ class BookManager extends DBConnect
     {
         $sql = 'SELECT * FROM book WHERE status = 1';
         $stmt = $this->pdo->query($sql);
-        $books = $stmt->fetchALL(PDO::FETCH_ASSOC);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
+        $books = $stmt->fetchALL();
+
         return $books;
     }
-    
+
     // Méthode pour récupérer les détails d'un livre spécifique
     public function getBookById($id)
     {
@@ -47,7 +57,9 @@ class BookManager extends DBConnect
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        $book = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
+        $book = $stmt->fetch();
+
         return $book;
     }
 
@@ -62,6 +74,7 @@ class BookManager extends DBConnect
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':status', $status, PDO::PARAM_INT);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
         return $stmt->execute();
     }
 
@@ -76,6 +89,7 @@ class BookManager extends DBConnect
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':status', $status, PDO::PARAM_INT);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
         return $stmt->execute();
     }
 
@@ -85,6 +99,7 @@ class BookManager extends DBConnect
         $sql = 'DELETE FROM book WHERE id = :id';
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
         return $stmt->execute();
     }
 
@@ -97,7 +112,9 @@ class BookManager extends DBConnect
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':search', $searchTerm);
         $stmt->execute();
-        $books = $stmt->fetchALL(PDO::FETCH_ASSOC);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
+        $books = $stmt->fetchALL();
+
         return $books;
     }
 }

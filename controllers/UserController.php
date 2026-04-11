@@ -57,9 +57,10 @@ class UserController
                 return;
             }
 
-            // créer l'utilisateur
             if ($this->userManager->createUser($name, $firstname, $email, $password, $pseudo, null)) {
-                header('Location: index.php?controller=user&action=login');
+                $user = $this->userManager->getUserByEmail($email);
+                $_SESSION['user_id'] = $user->getId();
+                header('Location: index.php');
                 exit();
             } else {
                 $error['general'] = 'Une erreur est survenue lors de l\'inscription.';
@@ -97,8 +98,8 @@ class UserController
 
             $user = $this->userManager->getUserByEmail($email);
 
-            if ($user && password_verify($password, $user['password'])) {
-                $_SESSION['user_id'] = $user['id'];
+            if ($user && password_verify($password, $user->getPassword())) {
+                $_SESSION['user_id'] = $user->getId();
                 header('Location: index.php');
                 exit();
             } else {
@@ -126,7 +127,7 @@ class UserController
             header('Location: index.php?controller=user&action=login');
             exit();
         }
-        
+
         $id = $_SESSION['user_id'];
         $user = $this->userManager->getUserById($id);
         $books = $this->bookManager->getBooksByUserId($id);

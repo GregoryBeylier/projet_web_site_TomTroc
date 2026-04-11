@@ -1,4 +1,8 @@
 <?php
+require_once __DIR__ . '/../config/DBConnect.php';
+require_once __DIR__ . '/User.php';
+require_once __DIR__ . '/Message.php';
+
 
 class MessageManager extends DBConnect
 {
@@ -25,13 +29,15 @@ class MessageManager extends DBConnect
     // Récupère les messages échangés entre deux utilisateurs
     public function getMessages($senderId, $receiverId)
     {
-        $sql = 'SELECT message.*, user.pseudo, user.profile_photo FROM message JOIN user ON (message.sender_id = user.id) WHERE (sender_id = :sender_id AND receiver_id = :receiver_id) OR (sender_id = :receiver_id AND receiver_id = :sender_id) ORDER BY created_at ASC';
+        $sql = 'SELECT * FROM message WHERE (sender_id = :sender_id AND receiver_id = :receiver_id) OR (sender_id = :receiver_id AND receiver_id = :sender_id) ORDER BY created_at ASC';
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':sender_id', $senderId);
         $stmt->bindParam(':receiver_id', $receiverId);
         $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Message');
+        $message = $stmt->fetchAll();
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $message;
     }
 
     // Récupère les conversations d'un utilisateur
@@ -41,8 +47,10 @@ class MessageManager extends DBConnect
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':user_id', $userId);
         $stmt->execute();
-    
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $message = $stmt->fetchAll();
+
+        return $message;
     }
 
     // Marque un message comme lu

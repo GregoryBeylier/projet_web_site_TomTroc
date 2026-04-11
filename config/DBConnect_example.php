@@ -12,8 +12,7 @@ class DBConnect
     {
         try {
             $pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname . ';charset=utf8', $this->username, $this->password);
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             die("Erreur de connexion : " . $e->getMessage());
         }
 

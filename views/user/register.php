@@ -24,13 +24,6 @@
             <span style="color: red; display: block;"><?php echo $error['name']; ?></span>
         <?php endif; ?>
 
-        <label for="image">fichier de l'image</label>
-        <input type="file" id="image" name="image"><br>
-        <?php if (isset($error['image'])) : ?>
-            <span style="color: red; display: block;"><?php echo $error['image']; ?></span>
-        <?php endif; ?>
-
-
         <label for="firstname">Prénom :</label>
         <input type="text" id="firstname" name="firstname"><br>
         <?php if (isset($error['firstname'])) : ?>

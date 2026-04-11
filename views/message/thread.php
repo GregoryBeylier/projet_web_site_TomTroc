@@ -11,11 +11,12 @@
 
 <body>
     <?php require __DIR__ . '/../templates/header.php'; ?>
-
+    <p><?= htmlspecialchars($otherUser->getPseudo()) ?></p>
     <?php foreach ($messages as $message): ?>
         <div>
-            <p><strong><?= htmlspecialchars($message['pseudo']) ?>:</strong> <?= htmlspecialchars($message['content']) ?></p>
-            <p><small><?= htmlspecialchars($message['created_at']) ?></small></p>
+            <p><strong><?= htmlspecialchars($message->getContent()) ?></strong></p>
+
+            <p><small><?= htmlspecialchars($message->getCreatedAt()) ?></small></p>
         </div>
     <?php endforeach; ?>
 
@@ -24,7 +25,7 @@
         <textarea name="content" required></textarea>
         <button type="submit">Envoyer</button>
     </form>
-    
+
     <?php require __DIR__ . '/../templates/footer.php'; ?>
 
 </body>

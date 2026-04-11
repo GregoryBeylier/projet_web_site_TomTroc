@@ -15,9 +15,9 @@
 
     <?php foreach ($conversations as $conversation): ?>
         <div>
-            <h2><?= htmlspecialchars($conversation['pseudo']) ?></h2>
-            <a href="index.php?controller=message&action=thread&id=<?= $conversation['id'] ?>">Voir la conversation</a>
-            <img src="<?= $conversation['profile_photo'] ?? 'default_profile.png' ?>" alt="photo">
+            <h2><?= htmlspecialchars($conversation->getPseudo()) ?></h2>
+            <a href="index.php?controller=message&action=thread&id=<?= $conversation->getId() ?>">Voir la conversation</a>
+            <img src="<?= $conversation->getProfilePhoto() ?? 'default_profile.png' ?>" alt="photo">
         </div>
     <?php endforeach; ?>
     <?php require __DIR__ . '/../templates/footer.php'; ?>

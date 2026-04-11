@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../models/MessageManager.php';
+require_once __DIR__ . '/../models/UserManager.php';
 
 class MessageController
 {
@@ -36,6 +37,8 @@ class MessageController
         $userId = $_SESSION['user_id']; // Assurez-vous que l'utilisateur est connecté et que son ID est stocké dans la session
         $otherId = $_GET['id'] ?? null; // Récupérez l'ID de l'autre utilisateur à partir de la requête
         $messages = $this->messageManager->getMessages($userId, $otherId);
+        $userManager = new UserManager(); // Instanciez UserManager pour obtenir les informations sur l'autre utilisateur
+        $otherUser = $userManager->getUserById($otherId); // Obtenez les informations sur l'autre utilisateur
         require __DIR__ . '/../views/message/thread.php';
     }
 
