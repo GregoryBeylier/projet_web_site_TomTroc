@@ -32,9 +32,12 @@
             <span style="color: red; display: block;"><?php echo $error['password']; ?></span><br>
         <?php endif; ?>
 
-
         <button type="submit">Se connecter</button>
     </form>
+
+    
+     <p>Pas de compte ? <a href="index.php?controller=user&action=register">Inscrivez-vous</a></p>
+
     <?php require __DIR__ . '/../templates/footer.php'; ?>
 
 </body>

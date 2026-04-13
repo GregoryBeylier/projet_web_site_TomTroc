@@ -15,11 +15,11 @@ class BookController
         $this->userManager = new UserManager();
     }
 
-    //
-
+    // Méthode pour afficher les 4 dernier livre ajouté depuis l'acceuil
     public function home()
     {
-        require __DIR__ . '/../views/home.php';
+        $lastBooks = $this->bookManager->getLastBooks();
+    require __DIR__ . '/../views/home.php';
     }
 
     // Nouvelle méthode pour afficher les livres d'un utilisateur spécifique
@@ -50,7 +50,7 @@ class BookController
         if ($id) {
             $book = $this->bookManager->getBookById($id);
             if ($book) {
-                $user = $this->userManager->getUserById($book['user_id']);
+                $user = $this->userManager->getUserById($book->getUserId());
                 require __DIR__ . '/../views/book/detail.php';
             } else {
                 echo 'Livre non trouvé';
@@ -76,7 +76,8 @@ class BookController
             $description = htmlspecialchars($_POST['description']);
             $status = isset($_POST['status']) ? $_POST['status'] : 0;
             $user_id = $_SESSION['user_id'];
-            $picture = $_FILES['picture']['name'];
+            $picture = 'picture/book/' . $_FILES['picture']['name'];
+            move_uploaded_file($_FILES['picture']['tmp_name'], $picture);
 
             $error = [];
 
@@ -95,7 +96,7 @@ class BookController
             // ajouter le livre à la base de données
             if ($this->bookManager->addBook($title, $picture, $author, $description, $status, $user_id)) {
                 // rediriger vers la liste des livres après l'ajout
-                header('Location: index.php?controller=book&action=list');
+                header('Location: index.php?controller=book&action=availableBooks');
                 exit();
             } else {
                 echo 'Erreur lors de l\'ajout du livre';
@@ -122,8 +123,9 @@ class BookController
             $author = htmlspecialchars($_POST['author']);
             $description = htmlspecialchars($_POST['description']);
             $status = isset($_POST['status']) ? $_POST['status'] : 0;
+            $picture = 'picture/book/' . $_FILES['picture']['name'];
+            move_uploaded_file($_FILES['picture']['tmp_name'], $picture);
 
-            $picture = $_FILES['picture']['name'];
 
 
             $error = [];
@@ -143,7 +145,7 @@ class BookController
             // Mettre à jour le livre dans la base de données
             if ($this->bookManager->updateBook($title, $picture, $author, $description, $status, $id)) {
                 // rediriger vers la liste des livres après la modification
-                header('Location: index.php?controller=book&action=list');
+                header('Location: index.php?controller=book&action=availableBooks');
                 exit();
             } else {
                 echo 'Erreur lors de la modification du livre';
@@ -170,7 +172,7 @@ class BookController
         if ($id) {
             if ($this->bookManager->deleteBook($id)) {
                 // rediriger vers la liste des livres après la suppression
-                header('Location: index.php?controller=book&action=list');
+                header('Location: index.php?controller=book&action=availableBookst');
                 exit();
             } else {
                 echo 'Erreur lors de la suppression du livre';

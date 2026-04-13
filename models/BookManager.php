@@ -63,6 +63,17 @@ class BookManager extends DBConnect
         return $book;
     }
 
+    //Méthode pour récupéerer les 4 derniers livres ajoutés 
+
+    public function getLastBooks() {
+        $sql = 'SELECT book.*, user.pseudo FROM book JOIN user ON  book.user_id = user.id  ORDER BY id DESC LIMIT 4';
+        $stmt = $this->pdo->query($sql);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
+       
+        return $stmt->fetchAll();
+    }
+
+
     // Méthode pour ajouter un nouveau livre
     public function addBook($title, $picture, $author, $description, $status, $user_id)
     {
