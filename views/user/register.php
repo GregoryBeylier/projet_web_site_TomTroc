@@ -22,12 +22,12 @@
                     <span style="color: red; display: block;"><?php echo $error['general']; ?></span><br>
                 <?php endif; ?>
 
-                  <label for="pseudo">Pseudo :</label>
+                <label for="pseudo">Pseudo :</label>
                 <input type="text" id="pseudo" name="pseudo"><br>
                 <?php if (isset($error['pseudo'])) : ?>
                     <span style="color: red; display: block;"><?php echo $error['pseudo']; ?></span>
                 <?php endif; ?>
-        
+
                 <label for="email">Adresse email :</label>
                 <input type="email" id="email" name="email"><br>
                 <?php if (isset($error['email'])) : ?>

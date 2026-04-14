@@ -11,9 +11,9 @@ class Book
     private $status;
     private $user_id;
     private $created_at;
-    private $pseudo; 
+    private $pseudo;
 
-  
+
 
     //Getter 
     public function getId()
@@ -112,7 +112,7 @@ class Book
         $this->$created_at = $created_at;
     }
 
-      //Getter 
+    //Getter 
     public function getPseudo()
     {
         return $this->pseudo;

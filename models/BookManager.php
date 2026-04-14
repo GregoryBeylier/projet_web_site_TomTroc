@@ -65,11 +65,12 @@ class BookManager extends DBConnect
 
     //Méthode pour récupéerer les 4 derniers livres ajoutés 
 
-    public function getLastBooks() {
+    public function getLastBooks()
+    {
         $sql = 'SELECT book.*, user.pseudo FROM book JOIN user ON  book.user_id = user.id  ORDER BY id DESC LIMIT 4';
         $stmt = $this->pdo->query($sql);
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
-       
+
         return $stmt->fetchAll();
     }
 

@@ -4,8 +4,6 @@ class User
 {
 
     private $id;
-    private $name;
-    private $first_name;
     private $email;
     private $password;
     private $pseudo;
@@ -22,30 +20,6 @@ class User
     public function setId($id)
     {
         $this->id = $id;
-    }
-
-    //Getter 
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    //Setter 
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    //Getter 
-    public function getFirstName()
-    {
-        return $this->first_name;
-    }
-
-    //Setter 
-    public function setFirstName($first_name)
-    {
-        $this->first_name = $first_name;
     }
 
     //Getter 

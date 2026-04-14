@@ -15,7 +15,7 @@
 
         <form action="index.php?controller=book&action=add" method="post" enctype="multipart/form-data">
             <label for="image">Image du livre :</label>
-            <input type="file" id="image" name="picture" required><br>
+            <input type="file" id="picture" name="picture" required><br>
 
             <label for="title">Titre :</label>
             <input type="text" id="title" name="title" required><br>

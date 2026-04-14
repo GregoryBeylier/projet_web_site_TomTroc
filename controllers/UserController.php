@@ -157,7 +157,8 @@ class UserController
             $email = htmlspecialchars($_POST['email']);
             $password = htmlspecialchars($_POST['password']);
             $pseudo = htmlspecialchars($_POST['pseudo']);
-
+            $user = $this->userManager->getUserById($id);
+            $profile_photo = $user->getProfilePhoto();
             $error = [];
 
             if (empty($email) || empty($pseudo)) {
@@ -174,7 +175,7 @@ class UserController
                 return;
             }
 
-            if ($this->userManager->updateUser($id, $email, $password, $pseudo)) {
+            if ($this->userManager->updateUser($id, $email, $password, $pseudo, $profile_photo)) {
                 header('Location: index.php?controller=user&action=profile');
                 exit();
             } else {
@@ -183,6 +184,36 @@ class UserController
                 require __DIR__ . '/../views/user/profile.php';
                 return;
             }
+        } else {
+            header('Location: index.php?controller=user&action=profile');
+            exit();
+        }
+    }
+
+    // Mettre à jour la photo de profil 
+    public function updateProfilePhoto()
+    {
+        // Vérifier si l'utilisateur est connecté
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: index.php?controller=user&action=login');
+            exit();
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_SESSION['user_id'];
+            $user = $this->userManager->getUserById($id);
+
+            if (!empty($_FILES['picture']['name'])) {
+                // photo uploadée
+                $profile_photo = 'picture/users/' . $_FILES['picture']['name'];
+                move_uploaded_file($_FILES['picture']['tmp_name'], $profile_photo);
+            } else {
+                // Photo par défaut
+                $profile_photo = $user->getProfilePhoto() ?: 'picture/users/default_profile.png';
+            }
+            $this->userManager->updatePhoto($id, $profile_photo);
+            header('Location: index.php?controller=user&action=profile');
+            exit();
         } else {
             header('Location: index.php?controller=user&action=profile');
             exit();

@@ -61,6 +61,10 @@ try {
                     $userController = new UserController();
                     $userController->updateProfile();
                     break;
+                case 'updateProfilePhoto':
+                    $userController = new UserController();
+                    $userController->updateProfilePhoto();
+                    break;
                 case 'profile':
                     $userController = new UserController();
                     $userController->profile();

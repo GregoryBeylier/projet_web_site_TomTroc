@@ -75,13 +75,23 @@ class UserManager extends DBConnect
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':profile_photo', $profile_photo);
         } else {
-            $sql = 'UPDATE user SET email = :email, pseudo = :pseudo WHERE id = :id';
+            $sql = 'UPDATE user SET email = :email, pseudo = :pseudo, profile_photo = :profile_photo WHERE id = :id';
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':pseudo', $pseudo);
+            $stmt->bindParam(':profile_photo', $profile_photo);
             $stmt->bindParam(':id', $id);
         }
 
+        return $stmt->execute();
+    }
+
+    public function updatePhoto($id, $profile_photo)
+    {
+        $sql = 'UPDATE user SET profile_photo = :profile_photo WHERE id = :id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':profile_photo', $profile_photo);
+        $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
 }
