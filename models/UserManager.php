@@ -14,14 +14,12 @@ class UserManager extends DBConnect
     }
 
     // Crée un nouvel utilisateur dans la base de données
-    public function createUser($name, $firstname, $email, $password, $pseudo, $profile_photo)
+    public function createUser($email, $password, $pseudo, $profile_photo)
     {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = 'INSERT INTO user (name, first_name, email, password, pseudo, profile_photo) VALUES (:name, :first_name, :email, :password, :pseudo, :profile_photo)';
+        $sql = 'INSERT INTO user (email, password, pseudo, profile_photo) VALUES (:email, :password, :pseudo, :profile_photo)';
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':first_name', $firstname);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashedPassword);
         $stmt->bindParam(':pseudo', $pseudo);
@@ -65,11 +63,11 @@ class UserManager extends DBConnect
     }
 
     // Met à jour les informations d'un utilisateur
-    public function updateUser($id, $email, $password, $pseudo)
+    public function updateUser($id, $email, $password, $pseudo, $profile_photo = null)
     {
         if (!empty($password)) {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            $sql = 'UPDATE user SET email = :email, password = :password, pseudo = :pseudo, profile_photo = : profile_photo WHERE id = :id';
+            $sql = 'UPDATE user SET email = :email, password = :password, pseudo = :pseudo, profile_photo = :profile_photo WHERE id = :id';
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $hashedPassword);

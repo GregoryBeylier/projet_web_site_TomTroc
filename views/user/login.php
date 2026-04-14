@@ -13,9 +13,9 @@
 <body>
     <?php require __DIR__ . '/../templates/header.php'; ?>
 
-    <div class="container_login">
+    <div class="container_auth">
 
-        <div class="login_form">
+        <div class="auth_form">
             <h1>Connexion</h1>
 
             <?php if (isset($error['general'])) : ?>
@@ -44,7 +44,7 @@
         </div>
 
 
-        <div class="login_image">
+        <div class="auth_form_image">
             <img src="picture/imageLogin.png" alt="imageLogin.png">
         </div>
 

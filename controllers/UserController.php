@@ -18,8 +18,6 @@ class UserController
     {
         // traiter les données du formulaire d'inscription
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $name = htmlspecialchars($_POST['name']);
-            $firstname = htmlspecialchars($_POST['firstname']);
             $email = htmlspecialchars($_POST['email']);
             $password = htmlspecialchars($_POST['password']);
             $pseudo = htmlspecialchars($_POST['pseudo']);
@@ -28,9 +26,7 @@ class UserController
             $error = []; // tableau pour stocker les message d'erreurs 
 
             // validation des données
-            if (empty($name) || empty($firstname) || empty($email) || empty($password) || empty($pseudo)) {
-                $error['name'] = 'Le nom est requis.';
-                $error['firstname'] = 'Le prénom est requis.';
+            if (empty($email) || empty($password) || empty($pseudo)) {
                 $error['email'] = 'L\'email est requis.';
                 $error['password'] = 'Le mot de passe est requis.';
                 $error['pseudo'] = 'Le pseudo est requis.';
@@ -57,7 +53,7 @@ class UserController
                 return;
             }
 
-            if ($this->userManager->createUser($name, $firstname, $email, $password, $pseudo, null)) {
+            if ($this->userManager->createUser($email, $password, $pseudo, null)) {
                 $user = $this->userManager->getUserByEmail($email);
                 $_SESSION['user_id'] = $user->getId();
                 header('Location: index.php');
