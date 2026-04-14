@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <title>Accueil</title>
 </head>
 
@@ -65,15 +66,15 @@
     </div>
 
     <div class="banner_section">
-            <img src="picture/maskgroup.png" alt="maskgroup.png">
+        <img src="picture/maskgroup.png" alt="maskgroup.png">
     </div>
 
     <div class="values_section">
-        
+
 
         <div class="values_text">
             <h2>Nos valeurs</h2>
-            <p>Chez TomTroc, nous mettons l'accent sur le partage, la découverte et la communauté. Nos valeurs sont ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. Nous croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes.</p> 
+            <p>Chez TomTroc, nous mettons l'accent sur le partage, la découverte et la communauté. Nos valeurs sont ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. Nous croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes.</p>
             <p>Notre association a été fondée avec une conviction profonde : chaque livre mérite d'être lu et partagé.</p>
             <p>Nous somme passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter, de partager leur découvertes littéraires et d'échanger des livres qui attendent patiemment sur les étagères.</p>
             <h3>L'équipe Tomtroc</h3>
@@ -81,7 +82,7 @@
 
         <div class="values_image">
             <img src="picture/vector.png" alt="vector.png">
-            
+
         </div>
 
     </div>

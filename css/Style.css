@@ -59,7 +59,7 @@ a {
   align-items: flex-end;
   flex-direction: row;
   white-space: nowrap;
-  padding : 23px 0 
+  padding: 23px 0;
 }
 
 .container {
@@ -81,7 +81,7 @@ a {
   align-items: center;
   background-color: #f5f3ef;
   gap: 107px;
-  padding-left: 291px;
+  min-height: 100vh
 }
 
 .hero_text h1 {
@@ -258,66 +258,152 @@ a {
 }
 
 .banner_section img {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .values_section {
-    background-color: #F5F3EF;
-    display : flex;
-    justify-content: center;
-    align-items: center;
-   flex-direction: row;
+  background-color: #f5f3ef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
-
-
 .values_text h2 {
-    font-family: "Playfair Display";
-    font-weight: 400;
-    font-size: 32px;
-    padding-top: 80px;
-    padding-bottom: 29px;
-    margin: 10px;
+  font-family: "Playfair Display";
+  font-weight: 400;
+  font-size: 32px;
+  padding-top: 80px;
+  padding-bottom: 29px;
+  margin: 10px;
 }
 
 .values_text {
-    display: flex;
-    padding-bottom :162px;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 13%;
+  display: flex;
+  padding-bottom: 162px;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 13%;
 }
 
 .values_text p {
-    font-family: "Inter";
-    font-weight: 300;
-    font-size: 16px;
-    width: 392px;
-    text-align: justify;
-    margin: 10px;
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 16px;
+  width: 392px;
+  text-align: justify;
+  margin: 10px;
 }
 
 .values_text h3 {
-    display: flex;
-    padding-bottom: 39px;
-    font-family: "inter";
-    font-weight: 400;
-    font-size: 12px;
-    color : #A6A6A6;
-    font-style: italic; 
-    padding-left: 10px;
-    margin: 0;
-    padding-top: 39px;
-    
+  display: flex;
+  padding-bottom: 39px;
+  font-family: "inter";
+  font-weight: 400;
+  font-size: 12px;
+  color: #a6a6a6;
+  font-style: italic;
+  padding-left: 10px;
+  margin: 0;
+  padding-top: 39px;
 }
 
-
-
 .values_image {
-    display : flex; 
-    align-self: flex-end;
-    padding-left : 25px;
-    padding-top : 80px;
-    padding-bottom :89px;
+  display: flex;
+  align-self: flex-end;
+  padding-left: 25px;
+  padding-top: 80px;
+  padding-bottom: 89px;
+}
+
+/* ========== */
+
+/* ===== LOGIN ===== */
+
+.container_login {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #faf9f7;
+  overflow: hidden;
+  height: 886px;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  padding-left: 150px;
+  padding-top: 130px;
+}
+
+.login_form h1 {
+    font-family:"Playfair Display";
+    font-weight: 400;
+    font-size: 36px;
+    padding-bottom: 56px;
+}
+
+.login_form input {
+  width: 322px;
+  height: 50px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.login_form label {
+  font-family: "inter";
+  font-weight: 400;
+  font-size: 14px;
+  padding-bottom: 10px;
+  color : #A6A6A6;
+  }
+
+.login_form p {
+  display: flex;
+  padding-bottom: 314px;
+  padding-top: 40px;
+}
+
+.login_form form {
+    display: flex;
+    flex-direction : column
+}
+
+.login_form button {
+  display: inline-block;
+  background-color: #00ac66;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 22px 38px 22px 38px;
+  width: 322px;
+  font-family: "inter";
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.login_form a {
+    text-decoration: underline;
+    color: black;
+}
+
+.login_form button:hover {
+  background-color: #008a50;
+  cursor: pointer;
+}
+
+.login_image {
+  display: flex;
+  justify-content: end;
+  height: 886px;
+  width: 720px;
+  flex: 1
+}
+
+.register {
+  font-family: "inter";
+  font-weight: 400;
+  font-size: 14px;
+  color: #292929;
 }
