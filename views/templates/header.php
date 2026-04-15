@@ -9,7 +9,7 @@
         </ul>
 
         <ul class="header_link header_link_right">
-            <li><a href="index.php?controller=message&action=conversations">Méssagerie</a></li>
+            <li><a href="index.php?controller=message&action=conversations">Messagerie</a></li>
             <li><a href="index.php?controller=user&action=profile">Mon compte</a></li>
             <?php if (isset($_SESSION['user_id'])): ?>
 

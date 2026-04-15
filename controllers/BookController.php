@@ -19,7 +19,7 @@ class BookController
     public function home()
     {
         $lastBooks = $this->bookManager->getLastBooks();
-    require __DIR__ . '/../views/home.php';
+        require __DIR__ . '/../views/home.php';
     }
 
     // Nouvelle méthode pour afficher les livres d'un utilisateur spécifique
@@ -123,9 +123,14 @@ class BookController
             $author = htmlspecialchars($_POST['author']);
             $description = htmlspecialchars($_POST['description']);
             $status = isset($_POST['status']) ? $_POST['status'] : 0;
-            $picture = 'picture/book/' . $_FILES['picture']['name'];
-            move_uploaded_file($_FILES['picture']['tmp_name'], $picture);
 
+            $book = $this->bookManager->getBookById($id);
+            if (!empty($_FILES['picture']['name'])) {
+                $picture = 'picture/book/' . $_FILES['picture']['name'];
+                move_uploaded_file($_FILES['picture']['tmp_name'], $picture);
+            } else {
+                $picture = $book->getPicture();
+            }
 
 
             $error = [];

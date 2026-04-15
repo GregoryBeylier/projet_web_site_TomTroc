@@ -13,114 +13,111 @@ class Book
     private $created_at;
     private $pseudo;
 
-
-
-    //Getter 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    //Setter 
-    public function setId($id)
+    public function setId(?int $id): self
     {
         $this->id = $id;
+
+        return $this;
     }
 
-
-    //Getter
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    //Setter
-    public function setTitle($title)
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
+
+        return $this;
     }
 
-    //Getter 
-    public function getPicture()
+    public function getPicture(): ?string
     {
         return $this->picture;
     }
 
-    //Setter
-    public function setPicture($picture)
+    public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
     }
 
-    //Getter 
-    public function getAuthor()
+    public function getAuthor(): ?string
     {
         return $this->author;
     }
 
-    //Setter
-    public function setAuthor($author)
+    public function setAuthor(?string $author): self
     {
         $this->author = $author;
+
+        return $this;
     }
 
-    //Getter 
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    //Setter 
-    public function setDescription($description)
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
     }
 
-    //Getter 
-    public function getStatus()
+    public function getStatus(): ?int
     {
         return $this->status;
     }
 
-    //Setter 
-    public function setStatus($status)
+    public function setStatus(?int $status): self
     {
         $this->status = $status;
+
+        return $this;
     }
 
-    //Getter 
-    public function getUserId()
+    public function getUserId(): ?int
     {
         return $this->user_id;
     }
 
-    //Setter 
-    public function setUserId($user_id)
+    public function setUserId(?int $user_id): self
     {
         $this->user_id = $user_id;
+
+        return $this;
     }
 
-    //Getter 
-    public function getCreatedAt()
+    public function getCreatedAt(): ?string
     {
         return $this->created_at;
     }
 
-    //Setter 
-    public function setCreatedAt($created_at)
+    public function setCreatedAt(?string $created_at): self
     {
-        $this->$created_at = $created_at;
+        $this->created_at = $created_at;
+
+        return $this;
     }
 
-    //Getter 
-    public function getPseudo()
+    public function getPseudo(): ?string
     {
         return $this->pseudo;
     }
 
-    //Setter 
-    public function setPseudo($pseudo)
+    public function setPseudo(?string $pseudo): self
     {
         $this->pseudo = $pseudo;
+
+        return $this;
     }
 }

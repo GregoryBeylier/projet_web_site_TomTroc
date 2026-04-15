@@ -422,38 +422,35 @@ a {
 
 .container_profile {
   display: flex;
-  background-color: red;
+  background-color: #faf9f7;
   flex-direction: column;
+}
+
+.container_profile h1 {
+  font-family: "Playfair Display";
+  font-weight: 400;
+  font-size: 26px;
+  padding-left: 150px;
+  padding-top: 90px;
 }
 
 .profile_info {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   gap: 33px;
   padding: 48px 155px 0px 150px;
+  align-items: stretch;
 }
 
 .profile_card {
   display: flex;
   flex-direction: column;
-  background-color: green;
+  background-color: #ffffff;
   width: 547px;
   min-height: 508px;
   border-radius: 10px;
   align-items: center;
-  box-sizing: border-box;
-}
-
-.profile_top {
-  display: flex;
-  flex-direction: column;
-  background-color: green;
-  width: 547px;
-  min-height: 508px;
-  border-radius: 10px;
-  justify-content: center;
   box-sizing: border-box;
 }
 
@@ -509,3 +506,304 @@ a {
 }
 
 /* ========== */
+
+.profile_top {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 547px;
+  min-height: 508px;
+  border-radius: 10px;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px 0;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.photo_profile {
+  border-radius: 50%;
+  width: 135px;
+  height: 135px;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.profile_top hr {
+  width: 242px;
+  margin-top: 48px;
+  margin-bottom: 30;
+}
+
+.pseudo {
+  font-family: "Playfair Display";
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.membre {
+  font-family: "inter";
+  font-weight: 400;
+  font-size: 14px;
+  color: #a6a6a6;
+}
+
+.profile_top a {
+  font-family: "inter";
+  font-size: 14px;
+  color: #292929;
+  text-decoration: underline;
+}
+
+#picture {
+  display: none;
+  padding-bottom: 48px;
+}
+
+.library {
+  display: flex;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.library_icon {
+  width: 10px;
+  height: 14px;
+  padding-top: 2px;
+}
+
+.library_section {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  margin-bottom: 93px;
+}
+
+.library_group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile_top p {
+  margin: 0;
+}
+
+/* ========== */
+
+.personal_library {
+  padding: 0px 155px;
+  background-color: #faf9f7;
+  padding-bottom: 102px;
+}
+
+.personal_library table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.personal_library th {
+  font-family: "inter";
+  font-size: 8px;
+  font-weight: 600;
+  color: black;
+  text-align: left;
+  padding: 16px 24px;
+  text-transform: uppercase;
+}
+
+.personal_library td {
+  font-family: "inter";
+  font-size: 12px;
+  font-weight: 400;
+  padding: 16px 24px;
+  vertical-align: middle;
+}
+
+.td_description {
+  font-style: italic;
+}
+
+.personal_library tr:nth-child(even) {
+  background-color: #eef2f6;
+}
+
+.personal_library td img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.badge_disponible {
+  background-color: #2eac69;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.badge_indisponible {
+  background-color: #e57373;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.personal_library .btn_edit {
+  font-family: "inter";
+  font-size: 14px;
+  color: #292929;
+  text-decoration: underline;
+  margin-right: 16px;
+}
+
+.personal_library .btn_delete {
+  font-family: "inter";
+  font-size: 14px;
+  color: #e57373;
+  text-decoration: underline;
+}
+
+/* ===== PROFIL PUBLIC ===== */
+
+.container_show_profile {
+  display: flex;
+  flex-direction: row;
+  gap: 33px;
+  padding: 103px 150px 212px 150px;
+
+  background-color: #FAF9F7;
+  align-items: flex-start;
+}
+
+.show_profile_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  width: 341px;
+  border-radius: 10px;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  align-self: flex-start;
+  min-height: 579px;
+}
+
+.show_profile_left .library_group {
+  margin-top: 16px;
+}
+
+.show_profile_left .library_section {
+  margin-bottom: 40px;
+}
+
+.show_profile_left_top hr {
+  width: 242px;
+
+  margin-bottom: 48px;
+  border: none;
+  border-top: 1px solid #f5f3ef;
+}
+
+.show_profile_left p {
+  margin: 0;
+}
+
+.show_profile_left_top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.show_profile_left img.photo_profile {
+  border-radius: 50%;
+  width: 135px;
+  height: 135px;
+  object-fit: cover;
+  margin-bottom: 70px;
+}
+
+.show_profile_right {
+  flex: 1;
+  border-radius: 10px;
+  box-sizing: border-box;
+  align-self: flex-start;
+  min-height: 579px;
+}
+
+.show_profile_right table {
+  width: 100%;
+  min-height: 579px;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+.show_profile_right thead tr {
+  border-bottom: 1px solid #f5f3ef;
+}
+
+.show_profile_right th {
+  font-family: "inter", sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  color: #292929;
+  padding-left: 66px;
+  text-align: left;
+  padding: 32px 24px 8px  24px;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+
+.show_profile_right th.th_photo {
+ text-align: center;
+ padding-right: 70px;
+}
+
+.show_profile_right td {
+  font-family: "inter";
+  font-size: 12px;
+  font-weight: 400;
+  padding: 16px 24px;
+  vertical-align: middle;
+  color: #292929;
+}
+
+.show_profile_right tr:nth-child(even) {
+  background-color: #eef2f6;
+}
+
+.show_profile_right td img {
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.btn_message {
+  display: inline-block;
+  background-color: #F5F3EF;
+  color: #00ac66;
+  border: 2px solid #00ac66;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-family: "inter";
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn_message:hover {
+  background-color: #2eac69;
+  color: white;
+}

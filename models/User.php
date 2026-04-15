@@ -10,75 +10,75 @@ class User
     private $profile_photo;
     private $created_at;
 
-    //Getter 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    //Setter 
-    public function setId($id)
+    public function setId(?int $id): self
     {
         $this->id = $id;
+        
+        return $this;
     }
 
-    //Getter 
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    //Setter 
-    public function setEmail($email)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
+        
+        return $this;
     }
 
-    //Getter 
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    //Setter 
-    public function setPassword($password)
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
+        
+        return $this;
     }
 
-    //Getter 
-    public function getPseudo()
+    public function getPseudo(): ?string
     {
         return $this->pseudo;
     }
 
-    //Setter 
-    public function setPseudo($pseudo)
+    public function setPseudo(?string $pseudo): self
     {
         $this->pseudo = $pseudo;
+        
+        return $this;
     }
 
-    //Getter 
-    public function getProfilePhoto()
+    public function getProfilePhoto(): ?string
     {
         return $this->profile_photo;
     }
 
-    //Setter 
-    public function setProfilePhoto($profile_photo)
+    public function setProfilePhoto(?string $profile_photo): self
     {
         $this->profile_photo = $profile_photo;
+        
+        return $this;
     }
 
-    //Getter 
-    public function getCreatedAt()
+    public function getCreatedAt(): ?string
     {
         return $this->created_at;
     }
 
-    //Setter 
-    public function setCreatedAt($created_at)
+    public function setCreatedAt(?string $created_at): self
     {
         $this->created_at = $created_at;
+        
+        return $this;
     }
 }

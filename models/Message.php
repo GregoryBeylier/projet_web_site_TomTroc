@@ -10,75 +10,76 @@ class Message
     private $created_at;
     private $is_read;
 
-    //Getter
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    //Setter 
-    public function setId($id)
+    public function setId(?int $id): self
     {
         $this->id = $id;
+
+        return $this;
     }
 
-    //Getter
-    public function getContent()
+    public function getContent(): ?string
     {
         return $this->content;
     }
 
-    //Setter 
-    public function setContent($content)
+    public function setContent(?string $content): self
     {
         $this->content = $content;
+
+        return $this;
     }
 
-    //Getter 
-    public function getSenderId()
+    public function getSenderId(): ?int
     {
         return $this->sender_id;
     }
 
-    //Setter 
-    public function setSenderId($sender_id)
+    public function setSenderId(?int $sender_id): self
     {
         $this->sender_id = $sender_id;
+
+        return $this;
     }
 
-    //Getter 
-    public function getReceiverId()
+    public function getReceiverId(): ?int
     {
         return $this->receiver_id;
     }
 
-    //Setter 
-    public function setReceiverId($receiver_id)
+    public function setReceiverId(?int $receiver_id): self
     {
         $this->receiver_id = $receiver_id;
+
+        return $this;
     }
 
-    //Getter 
-    public function getCreatedAt()
+    public function getCreatedAt(): ?string
     {
         return $this->created_at;
     }
 
-    //Setter 
-    public function setCreatedAt($created_at)
+    public function setCreatedAt(?string $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
     }
 
-    //Getter 
-    public function getIsRead()
+
+    public function getIsRead(): ?int
     {
         return $this->is_read;
     }
 
-    //Setter 
-    public function setIsRead($is_read)
+    public function setIsRead(?int $is_read): self
     {
         $this->is_read = $is_read;
+
+        return $this;
     }
 }
