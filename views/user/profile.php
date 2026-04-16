@@ -22,13 +22,13 @@
             <div class="profile_top">
 
                 <?php
-                $photo = !empty($user->getProfilePhoto()) ? $user->getProfilePhoto() : 'default_profile.png';
+                $photo = !empty($user->getProfilePhoto()) ? $user->getProfilePhoto() : 'picture/users/default_profile.png';
                 ?>
-                <img class="profile_picture " src="<?php echo htmlspecialchars($photo); ?>" alt="Photo de profil" />
+                <img class="photo_profile " src="<?php echo htmlspecialchars($photo); ?>" alt="Photo de profil" />
 
                 <form action="index.php?controller=user&action=updateProfilePhoto" method="post" enctype="multipart/form-data">
 
-                    <input type="file" id="picture" name="picture">
+                    <input type="file" id="profile_picture" name="picture">
 
                     <?php if (isset($error['image'])) : ?>
                         <span style="color: red; display: block;"><?php echo $error['image']; ?></span>
@@ -41,7 +41,7 @@
                 <hr />
 
                 <div class="pseudo">
-                    <p><?php echo htmlspecialchars($user->getPseudo()); ?></p>
+                    <p><?php echo strip_tags(htmlspecialchars_decode($user->getPseudo())); ?></p>
                 </div>
 
 
@@ -73,13 +73,13 @@
                 <p>Vos informations personnelles</p>
                 <form action="index.php?controller=user&action=updateProfile" method="post">
                     <label>Adresse email</label>
-                    <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user->getEmail()); ?>">
+                    <input type="email" id="email" name="email" value="<?php echo strip_tags(htmlspecialchars_decode($user->getEmail())); ?>">
 
                     <label>Nouveau Mot de passe</label>
-                    <input type="password" id="password" name="password" placeholder="Nouveau mot de passe">
+                    <input type="password" id="password" name="password">
 
                     <label>Pseudo</label>
-                    <input type="text" id="pseudo" name="pseudo" value="<?php echo htmlspecialchars($user->getPseudo()); ?>"><br>
+                    <input type="text" id="pseudo" name="pseudo" value="<?php echo strip_tags(htmlspecialchars_decode($user->getPseudo())); ?>"><br>
 
                     <button class="btn_profile_outline" type="submit">Enregister</button>
                 </form>
@@ -102,10 +102,10 @@
                 <tbody>
                     <?php foreach ($books as $book): ?>
                         <tr>
-                            <td><img src="<?php echo $book->getPicture(); ?>" alt="Couverture du livre" width="100" /></td>
-                            <td><?php echo $book->getTitle(); ?></td>
-                            <td><?php echo $book->getAuthor(); ?></td>
-                            <td class="td_description"><?php echo $book->getDescription(); ?></td>
+                            <td><img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="Couverture du livre" width="100" /></td>
+                            <td><?php echo strip_tags(htmlspecialchars_decode($book->getTitle())); ?></td>
+                            <td><?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></td>
+                            <td class="td_description"><?php echo mb_strimwidth(strip_tags(htmlspecialchars_decode($book->getDescription())), 0, 100, '...'); ?></td>
                             <td><?php echo $book->getStatus() == 1 ? '<span class="badge_disponible">disponible</span>' : '<span class="badge_indisponible">non dispo</span>'; ?></td>
                             <td>
                                 <a class="btn_edit" href="index.php?controller=book&action=edit&id=<?php echo $book->getId(); ?>">Éditer</a>

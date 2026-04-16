@@ -150,7 +150,7 @@ class BookController
             // Mettre à jour le livre dans la base de données
             if ($this->bookManager->updateBook($title, $picture, $author, $description, $status, $id)) {
                 // rediriger vers la liste des livres après la modification
-                header('Location: index.php?controller=book&action=availableBooks');
+                header('Location: index.php?controller=book&action=detail&id=' . $id);
                 exit();
             } else {
                 echo 'Erreur lors de la modification du livre';
@@ -176,8 +176,8 @@ class BookController
         $id = $_GET['id'] ?? null;
         if ($id) {
             if ($this->bookManager->deleteBook($id)) {
-                // rediriger vers la liste des livres après la suppression
-                header('Location: index.php?controller=book&action=availableBookst');
+                // rediriger vers le profil
+                header('Location: index.php?controller=user&action=profile');
                 exit();
             } else {
                 echo 'Erreur lors de la suppression du livre';

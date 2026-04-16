@@ -32,6 +32,11 @@ class UserController
                 $error['pseudo'] = 'Le pseudo est requis.';
             }
 
+            // longeur du pseudo 
+            if (mb_strlen($pseudo) > 50) {
+                $error['pseudo'] = 'Le pseudo ne peut pas dépasser 50 caractères';
+            }
+
             // vérifier si l'email est valide 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $error['email'] = 'L\'adresse email n\'est pas valide.';

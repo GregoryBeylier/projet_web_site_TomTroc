@@ -624,6 +624,8 @@ a {
 
 .td_description {
   font-style: italic;
+  width: 128px;
+  height: 62px;
 }
 
 .personal_library tr:nth-child(even) {

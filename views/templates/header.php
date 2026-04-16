@@ -1,4 +1,8 @@
 <header class="header">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    </head>
     <a class="logo" href="index.php">
         <img src="picture/logo.png" alt="Logo TomTroc">
     </a>

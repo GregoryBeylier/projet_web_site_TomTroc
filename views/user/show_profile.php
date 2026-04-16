@@ -14,13 +14,13 @@
 
     <div class="container_show_profile">
         <div class="show_profile_left">
-            <?php $photo = !empty($user->getProfilePhoto()) ? $user->getProfilePhoto() : 'default_profile.png'; ?>
+            <?php $photo = !empty($user->getProfilePhoto()) ? $user->getProfilePhoto() : 'picture/users/default_profile.png'; ?>
             <div class="show_profile_left_top">
                 <img class="photo_profile" src="<?php echo htmlspecialchars($photo); ?>" alt="Photo de profil">
                 
                 <hr>
                 <div class="pseudo">
-                    <p><?php echo htmlspecialchars($user->getPseudo()); ?></p>
+                    <p><?php echo strip_tags(htmlspecialchars_decode($user->getPseudo())); ?></p>
                 </div>
                 <p class="membre">Membre depuis
                     <?php
@@ -57,11 +57,11 @@
                 <tbody>
                     <?php foreach ($books as $book): ?>
                         <tr>
-                            <td><img src="<?php echo $book->getPicture(); ?>" alt="Couverture"></td>
-                            <td><?php echo $book->getTitle(); ?></td>
-                            <td><?php echo $book->getAuthor(); ?></td>
-                            <td class="td_description"><?php echo $book->getDescription(); ?></td>
-                        </tr>
+                            <td><img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="Couverture"></td>
+                            <td><?php echo strip_tags(htmlspecialchars_decode($book->getTitle())); ?></td>
+                            <td><?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></td>
+                            <td class="td_description"><?php echo mb_strimwidth(strip_tags(htmlspecialchars_decode($book->getDescription())), 0, 100, '...'); ?></td>
+                    </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>

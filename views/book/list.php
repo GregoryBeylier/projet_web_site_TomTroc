@@ -23,10 +23,9 @@
         <button type="submit">Rechercher</button>
     </form>
     <?php foreach ($books as $book) : ?>
-        <p><?php echo $book->getTitle(); ?></p>
-        <p><?php echo $book->getDescription(); ?></p>
-        <p><?php echo $book->getAuthor(); ?></p>
-        <img src="<?php echo $book->getPicture(); ?>" alt="couverture">
+        <p><?php echo strip_tags(htmlspecialchars_decode($book->getTitle())); ?></p>
+        <p><?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></p>
+        <img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="couverture">
         <p><?php echo $book->getStatus() == 1 ? 'Disponible' : 'Non disponible'; ?></p>
         <a href="index.php?controller=book&action=detail&id=<?php echo $book->getId(); ?>">Voir le details</a>
     <?php endforeach; ?>
