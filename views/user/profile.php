@@ -24,7 +24,7 @@
                 <?php
                 $photo = !empty($user->getProfilePhoto()) ? $user->getProfilePhoto() : 'default_profile.png';
                 ?>
-                <img class="photo_profile" src="<?php echo htmlspecialchars($photo); ?>" alt="Photo de profil" />
+                <img class="profile_picture " src="<?php echo htmlspecialchars($photo); ?>" alt="Photo de profil" />
 
                 <form action="index.php?controller=user&action=updateProfilePhoto" method="post" enctype="multipart/form-data">
 

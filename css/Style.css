@@ -81,7 +81,6 @@ a {
   align-items: center;
   background-color: #f5f3ef;
   gap: 107px;
-  min-height: 100vh;
   padding-left: 290px;
 }
 
@@ -555,7 +554,7 @@ a {
   text-decoration: underline;
 }
 
-#picture {
+#profile_picture {
   display: none;
   padding-bottom: 48px;
 }
@@ -676,7 +675,7 @@ a {
   gap: 33px;
   padding: 103px 150px 212px 150px;
 
-  background-color: #FAF9F7;
+  background-color: #faf9f7;
   align-items: flex-start;
 }
 
@@ -746,7 +745,6 @@ a {
   overflow: hidden;
 }
 
-
 .show_profile_right thead tr {
   border-bottom: 1px solid #f5f3ef;
 }
@@ -758,14 +756,14 @@ a {
   color: #292929;
   padding-left: 66px;
   text-align: left;
-  padding: 32px 24px 8px  24px;
+  padding: 32px 24px 8px 24px;
   text-transform: uppercase;
   border-radius: 10px;
 }
 
 .show_profile_right th.th_photo {
- text-align: center;
- padding-right: 70px;
+  text-align: center;
+  padding-right: 70px;
 }
 
 .show_profile_right td {
@@ -791,7 +789,7 @@ a {
 
 .btn_message {
   display: inline-block;
-  background-color: #F5F3EF;
+  background-color: #f5f3ef;
   color: #00ac66;
   border: 2px solid #00ac66;
   padding: 16px 32px;
@@ -810,3 +808,145 @@ a {
 
 /* ========== */
 
+/* ===== BOOK DETAIL ===== */
+
+.breadcrumb {
+    padding: 16px 85px;
+    font-size: 12px;
+    color: #a6a6a6;
+    font-family: "Inter", sans-serif;
+    background-color:#f5f3ef ;
+    padding-left : 150px;
+}
+
+.breadcrumb a {
+    color: #a6a6a6;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: #2EAC69;
+}
+
+.container_book_detail {
+  display: flex;
+  flex-direction: row;
+  background-color: #faf9f7;
+}
+
+.book_detail_left {
+  width: 50%;
+  max-height: 100vh;
+  overflow: hidden
+}
+
+.book_detail_left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book_detail_right {
+  width: 720px;
+  display: flex;
+  padding-top: 59px;
+  padding-left: 85px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+
+.book_detail_right h1 {
+  font-family: "Lora", serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #292929;
+  margin: 0;
+}
+
+.book_author {
+  color: #a6a6a6;
+  font-size: 14px;
+  margin: 8px 0;
+  padding: 0;
+}
+
+.book_detail_right hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  width: 40px;
+  margin: 16px 0;
+}
+
+.book_description {
+  text-align: justify;
+  width: 485px;
+  min-height: auto;
+  margin-bottom: 32px;
+  font-family: "Inter";
+  font-weight: 14px;
+  font-weight: 400;
+}
+
+.book_description_label,
+.book_owner_label {
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #a6a6a6;
+  text-transform: uppercase;
+  margin: 0px 0px 16px 0px;
+}
+
+.book_owner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 50px;
+  padding: 8px 32px 8px 8px;
+  width: fit-content;
+  background-color: #ffffff;
+  transition:
+    padding-right 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.book_owner:hover {
+  padding-right: 16px;
+}
+
+.book_owner:hover a {
+  color: #2eac69;
+}
+
+.book_owner a {
+  transition: color 0.3s ease;
+}
+
+.book_owner:hover img {
+  filter: sepia(1) saturate(3) hue-rotate(90deg);
+}
+
+.book_owner img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+.btn_send_message {
+  display: block;
+  background-color: #2eac69;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  width: 485px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
