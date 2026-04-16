@@ -102,8 +102,17 @@ a {
 .hero_image img {
   width: 404px;
   height: 539px;
-  padding-bottom: 128px;
+  
   padding-top: 80px;
+}
+
+.hero_image_credit {
+    font-style: italic;
+    font-size: 12px;
+    color: #a6a6a6;
+    text-align: right;
+    margin-top: 12px;
+    padding-bottom: 101px;
 }
 
 .btn_decouvrir {
@@ -160,7 +169,7 @@ a {
 }
 
 .book_title {
-  font-family: "inter";
+    font-family: "inter";
   font-size: 16px;
   font-weight: 400;
   padding-left: 14px;
@@ -866,7 +875,7 @@ a {
   margin: 0;
 }
 
-.book_author {
+.book_author_detail {
   color: #a6a6a6;
   font-size: 14px;
   margin: 8px 0;

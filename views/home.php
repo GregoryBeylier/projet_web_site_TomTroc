@@ -21,6 +21,7 @@
 
         <div class="hero_image">
             <img src="picture/accueil.png" alt="accueil.png">
+            <p class="hero_image_credit">Hamza</p>
         </div>
     </div>
 
@@ -32,9 +33,9 @@
 
                 <a class="book_card" href="index.php?controller=book&action=detail&id=<?php echo $book->getId(); ?>">
                     <img src="<?php echo $book->getPicture(); ?>" alt="couverture">
-                    <p class="book_title"><?php echo $book->getTitle(); ?></p>
-                    <p class="book_author"><?php echo $book->getAuthor(); ?></p>
-                    <p class="book_user">Vendu par <?php echo $book->getPseudo() ?></p>
+                    <p class="book_title"><?php echo strip_tags(htmlspecialchars_decode($book->getTitle())); ?></p>
+                    <p class="book_author"><?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></p>
+                    <p class="book_user">Vendu par <?php echo strip_tags(htmlspecialchars_decode($book->getPseudo())); ?></p>
                 </a>
             <?php endforeach; ?>
         </div>

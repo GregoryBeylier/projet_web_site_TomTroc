@@ -23,7 +23,7 @@
         <div class="book_detail_right">
             <div class="book_detail_right_top">
                 <h1><?php echo strip_tags(htmlspecialchars_decode($book->getTitle())); ?></h1>
-                <p class="book_author">par <?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></p>
+                <p class="book_author_detail">par <?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></p>
                 <hr>
                 <p class="book_description_label">DESCRIPTION</p>
                 <p class="book_description"><?php echo nl2br(strip_tags(htmlspecialchars_decode($book->getDescription()))); ?></p>
