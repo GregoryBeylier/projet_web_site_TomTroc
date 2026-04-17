@@ -102,17 +102,17 @@ a {
 .hero_image img {
   width: 404px;
   height: 539px;
-  
+
   padding-top: 80px;
 }
 
 .hero_image_credit {
-    font-style: italic;
-    font-size: 12px;
-    color: #a6a6a6;
-    text-align: right;
-    margin-top: 12px;
-    padding-bottom: 101px;
+  font-style: italic;
+  font-size: 12px;
+  color: #a6a6a6;
+  text-align: right;
+  margin-top: 12px;
+  padding-bottom: 101px;
 }
 
 .btn_decouvrir {
@@ -130,6 +130,9 @@ a {
 .btn_decouvrir:hover {
   background-color: #008a50;
   cursor: pointer;
+  transition:
+    padding-right 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .book_section {
@@ -169,7 +172,7 @@ a {
 }
 
 .book_title {
-    font-family: "inter";
+  font-family: "inter";
   font-size: 16px;
   font-weight: 400;
   padding-left: 14px;
@@ -264,6 +267,9 @@ a {
   background-color: #2eac69;
   color: white;
   cursor: pointer;
+  transition:
+    padding-right 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .banner_section img {
@@ -401,6 +407,9 @@ a {
 .auth_form button:hover {
   background-color: #008a50;
   cursor: pointer;
+  transition:
+    padding-right 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .auth_form_image {
@@ -494,6 +503,9 @@ a {
   background-color: #2eac69;
   color: white;
   cursor: pointer;
+  transition:
+    padding-right 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .profile_card label {
@@ -815,6 +827,9 @@ a {
 .btn_message:hover {
   background-color: #2eac69;
   color: white;
+  transition:
+    padding-right 0.3s ease,
+    background-color 0.3s ease;
 }
 
 /* ========== */
@@ -822,21 +837,21 @@ a {
 /* ===== BOOK DETAIL ===== */
 
 .breadcrumb {
-    padding: 16px 85px;
-    font-size: 12px;
-    color: #a6a6a6;
-    font-family: "Inter", sans-serif;
-    background-color:#f5f3ef ;
-    padding-left : 150px;
+  padding: 16px 85px;
+  font-size: 12px;
+  color: #a6a6a6;
+  font-family: "Inter", sans-serif;
+  background-color: #f5f3ef;
+  padding-left: 150px;
 }
 
 .breadcrumb a {
-    color: #a6a6a6;
-    text-decoration: none;
+  color: #a6a6a6;
+  text-decoration: none;
 }
 
 .breadcrumb a:hover {
-    color: #2EAC69;
+  color: #2eac69;
 }
 
 .container_book_detail {
@@ -848,7 +863,7 @@ a {
 .book_detail_left {
   width: 50%;
   max-height: 100vh;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .book_detail_left img {
@@ -960,4 +975,130 @@ a {
   width: 485px;
   margin-top: 80px;
   margin-bottom: 80px;
+}
+
+/* ===== EDIT ===== */
+
+.container_edit_book {
+  padding: 40px 155px;
+  background-color: #f5f3ef;
+  padding-bottom: 92px;
+}
+
+.btn_back {
+  font-size: 14px;
+  color: #292929;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.container_edit_book h1 {
+  font-family: "Lora", serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 23px;
+  margin-top: 23px;
+}
+
+.edit_book_layout {
+  display: flex;
+  gap: 60px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.edit_book_left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 490px;
+}
+
+.edit_label {
+  margin: 0px;
+  color: #a6a6a6;
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 56px;
+}
+
+.edit_book_left img {
+  width: 488px;
+  object-fit: cover;
+  height: 488px;
+}
+
+#edit_picture {
+  display: none;
+}
+
+#modifier_photo {
+  font-size: 14px;
+  text-decoration: underline;
+  display: block;
+  text-align: right;
+  width: 100%;
+}
+
+.edit_book_right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit_book_right form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 435px;
+  align-self: flex-end;
+  padding-right: 50px;
+  margin-top: 56px;
+  margin-bottom: 68px;
+}
+
+.edit_book_right label {
+  font-size: 14px;
+  color: #a6a6a6;
+  font-family: "Inter", sans-serif;
+}
+
+.edit_book_right textarea {
+  height: 383px;
+  resize: none;
+}
+
+.edit_book_right input,
+.edit_book_right textarea,
+.edit_book_right select {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  background-color: #eef2f6;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 32px;
+}
+
+.btn_valider {
+  background-color: #2eac69;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  width: 200px;
+}
+
+.btn_valider:hover {
+  background-color: #008a50;
+  cursor: pointer;
+  transition:
+    padding-right 0.3s ease,
+    background-color 0.3s ease;
 }

@@ -6,35 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Éditer un livre</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
     <?php require __DIR__ . '/../templates/header.php'; ?>
-    <h1>Éditer un livre</h1>
 
-    <form action="index.php?controller=book&action=edit&id=<?php echo $book->getId(); ?>" method="post" enctype="multipart/form-data">
-        <label for="image">Image du livre :</label>
-        <input type="file" id="image" name="picture"><br>
+    <div class="container_edit_book">
+        <a href="index.php?controller=book&action=detail&id=<?php echo $book->getId(); ?>" class="btn_back">← retour</a>
+        <h1>Modifier les informations</h1>
 
-        <label for="title">Titre :</label>
-        <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($book->getTitle()); ?>" required><br>
+        <div class="edit_book_layout">
+            <div class="edit_book_left">
+                <p class="edit_label">Photo</p>
+                <img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="couverture">
+                <a href="#" id="modifier_photo">Modifier la photo</a>
+            </div>
 
-        <label for="author">Auteur :</label>
-        <input type="text" id="author" name="author" value="<?php echo htmlspecialchars($book->getAuthor()); ?>" required><br>
+            <div class="edit_book_right">
+                <form action="index.php?controller=book&action=edit&id=<?php echo $book->getId(); ?>" method="post" enctype="multipart/form-data">
+                    <input type="file" id="edit_picture" name="picture">
+                    <label>Titre</label>
+                    <input type="text" name="title" value="<?php echo htmlspecialchars_decode($book->getTitle()); ?>" required>
 
-        <label for="description">Description :</label><br>
-        <textarea id="description" name="description" rows="4" cols="50"><?php echo htmlspecialchars($book->getDescription()); ?></textarea><br>
+                    <label>Auteur</label>
+                    <input type="text" name="author" value="<?php echo htmlspecialchars_decode($book->getAuthor()); ?>" required>
 
-        <label for="available">disponibilité :</label>
-        <select id="available" name="status">
-            <option value="1" <?php if ($book->getStatus() == 1) echo 'selected'; ?>>disponible</option>
-            <option value="0" <?php if ($book->getStatus() == 0) echo 'selected'; ?>>indisponible</option>
-        </select><br>
+                    <label>Commentaire</label>
+                    <textarea name="description" rows="8"><?php echo htmlspecialchars_decode($book->getDescription()); ?></textarea>
 
-        <button type="submit">Modifier le livre</button>
-    </form>
+                    <label>Disponibilité</label>
+                    <select name="status">
+                        <option value="1" <?php if ($book->getStatus() == 1) echo 'selected'; ?>>disponible</option>
+                        <option value="0" <?php if ($book->getStatus() == 0) echo 'selected'; ?>>indisponible</option>
+                    </select>
+
+                    <button type="submit" class="btn_valider">Valider</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <?php require __DIR__ . '/../templates/footer.php'; ?>
-
 </body>
 
 </html>
