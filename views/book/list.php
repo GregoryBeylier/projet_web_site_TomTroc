@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos livres à l'échange</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <?php require __DIR__ . '/../templates/header.php'; ?>
 
+    <div class="container_list">
+        <div class="list_header">
+            <h1>Nos livres à l'échange</h1>
+            <form action="index.php" method="get">
+                <input type="hidden" name="controller" value="book">
+                <input type="hidden" name="action" value="availableBooks">
+                <div class="search_wrapper">
+                    <img src="picture/search-icon.png" alt="rechercher" class="search_icon">
+                    <input type="search" name="search" placeholder="Rechercher un livre" value="<?php echo htmlspecialchars($search ?? ''); ?>">
+                    <button type="submit">Rechercher</button>
+                </div>
+            </form>
+        </div>
 
-    <?php if (empty($books)) : ?>
-        <p>Aucun livre trouvé.</p>
-    <?php endif; ?>
+        <?php if (empty($books)) : ?>
+            <p>Aucun livre trouvé.</p>
+        <?php endif; ?>
 
-    <form action="index.php" method="get">
-        <input type="hidden" name="controller" value="book">
-        <input type="hidden" name="action" value="availableBooks">
-        <input type="search" name="search" placeholder="Rechercher un livre..." value="<?php echo htmlspecialchars($search ?? ''); ?>">
-        <button type="submit">Rechercher</button>
-    </form>
-    <?php foreach ($books as $book) : ?>
-        <p><?php echo strip_tags(htmlspecialchars_decode($book->getTitle())); ?></p>
-        <p><?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></p>
-        <img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="couverture">
-        <p><?php echo $book->getStatus() == 1 ? 'Disponible' : 'Non disponible'; ?></p>
-        <a href="index.php?controller=book&action=detail&id=<?php echo $book->getId(); ?>">Voir le details</a>
-    <?php endforeach; ?>
+        <div class="books_grid">
+            <?php foreach ($books as $book) : ?>
+                <a class="book_card_list" href="index.php?controller=book&action=detail&id=<?php echo $book->getId(); ?>">
+                    <img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="couverture">
+                    <div class="book_card_list_info">
+                        <p class="book_title"><?php echo strip_tags(htmlspecialchars_decode($book->getTitle())); ?></p>
+                        <p class="book_author"><?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></p>
+                        <p class="book_user">Vendu par <?php echo strip_tags(htmlspecialchars_decode($book->getPseudo() ?? '')); ?></p>
+                    </div>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
     <?php require __DIR__ . '/../templates/footer.php'; ?>
-
-
 </body>
-
 </html>
