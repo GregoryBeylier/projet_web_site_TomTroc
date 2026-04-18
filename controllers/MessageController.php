@@ -30,14 +30,9 @@ class MessageController
 
         if ($otherId) {
             $messages = $this->messageManager->getMessages($userId, $otherId);
+            $this->messageManager->markAsRead($otherId, $userId); // ajoute cette ligne
             $userManager = new UserManager();
             $otherUser = $userManager->getUserById($otherId);
-        }
-
-        foreach ($conversations as $conversation) {
-            $conversation->setLastMessage(
-                $this->messageManager->getLastMessage($userId, $conversation->getId())
-            );
         }
 
         require __DIR__ . '/../views/message/conversations.php';

@@ -74,11 +74,21 @@ class MessageManager extends DBConnect
     // Marque un message comme lu
     public function markAsRead($senderId, $receiverId)
     {
-        $sql = 'UPDATE message SET is_read = 1 WHERE (sender_id = :sender_id AND receiver_id = :receiver_id) OR (sender_id = :receiver_id AND receiver_id = :sender_id)';
+        $sql = 'UPDATE message SET is_read = 1 WHERE sender_id = :sender_id AND receiver_id = :receiver_id';
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':sender_id', $senderId);
         $stmt->bindValue(':receiver_id', $receiverId);
 
         return $stmt->execute();
+    }
+
+    // Compte les messages non lus
+    public function countUnreadMessages($userId)
+    {
+        $sql = 'SELECT COUNT(*) FROM message WHERE receiver_id = :user_id AND is_read = 0';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':user_id', $userId);
+        $stmt->execute();
+        return $stmt->fetchColumn();
     }
 }

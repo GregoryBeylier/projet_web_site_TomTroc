@@ -5,8 +5,33 @@ body {
 
 /* ===== HEADER ===== */
 
+.nav_active {
+  font-weight: 700;
+}
+
+.nav_icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.nav_badge {
+  background-color: #292929;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+}
+
 .logo {
-  margin: 150px;
+  margin: 15px 78px 15px 150px;
 }
 
 .header {
@@ -28,7 +53,6 @@ body {
   list-style: none;
   color: #292929;
   flex-direction: row;
-  padding-left: 78px;
   padding-right: 150px;
   font-family: "inter";
   font-size: 14px;
