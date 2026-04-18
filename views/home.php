@@ -27,7 +27,6 @@
 
     <div class="book_section">
         <h2>Les derniers livres ajoutés</h2>
-
         <div class="book_grid">
             <?php foreach ($lastBooks as $book) : ?>
 
@@ -39,9 +38,7 @@
                 </a>
             <?php endforeach; ?>
         </div>
-
         <a href="index.php?controller=book&action=availableBooks" class="btn_decouvrir">Voir tous les livres</a>
-
     </div>
 
     <div class="how_section">
@@ -61,9 +58,7 @@
                 <p>Proposez un échange et discutez avec d'autres passionnés de lecture.</p>
             </div>
         </div>
-
         <a href="index.php?controller=book&action=availableBooks" class="btn_outline">Voir tous les livres</a>
-
     </div>
 
     <div class="banner_section">
@@ -71,8 +66,6 @@
     </div>
 
     <div class="values_section">
-
-
         <div class="values_text">
             <h2>Nos valeurs</h2>
             <p>Chez TomTroc, nous mettons l'accent sur le partage, la découverte et la communauté. Nos valeurs sont ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. Nous croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes.</p>
@@ -83,24 +76,8 @@
 
         <div class="values_image">
             <img src="picture/vector.png" alt="vector.png">
-
         </div>
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <?php require __DIR__ . '/templates/footer.php'; ?>
 </body>
 
