@@ -65,6 +65,9 @@ body {
 
 .header_link_right {
   gap: 58px;
+  border-left: 1px solid #e0e0e0;
+  padding-left: 40px;
+  margin-left: 40px;
 }
 
 a {
