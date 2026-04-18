@@ -15,14 +15,31 @@ class MessageController
     // Méthode pour envoyer un message
     public function conversations()
     {
-        // Vérifiez si l'utilisateur est connecté
         if (!isset($_SESSION['user_id'])) {
             header('Location: index.php?controller=user&action=login');
             exit();
         }
 
-        $userId = $_SESSION['user_id']; // Assurez-vous que l'utilisateur est connecté et que son ID est stocké dans la session
+        $userId = $_SESSION['user_id'];
         $conversations = $this->messageManager->getConversations($userId);
+
+        // Si un id est passé en GET, on charge aussi le thread
+        $messages = [];
+        $otherUser = null;
+        $otherId = $_GET['id'] ?? null;
+
+        if ($otherId) {
+            $messages = $this->messageManager->getMessages($userId, $otherId);
+            $userManager = new UserManager();
+            $otherUser = $userManager->getUserById($otherId);
+        }
+
+        foreach ($conversations as $conversation) {
+            $conversation->setLastMessage(
+                $this->messageManager->getLastMessage($userId, $conversation->getId())
+            );
+        }
+
         require __DIR__ . '/../views/message/conversations.php';
     }
 
@@ -54,7 +71,13 @@ class MessageController
             $receiverId = (int) $_POST['receiver_id'] ?? null; // ID du destinataire
             $content = htmlspecialchars($_POST['content'] ?? null); // Contenu du message
             $sender = $this->messageManager->sendMessage($senderId, $receiverId, $content);
-            header('Location: index.php?controller=message&action=thread&id=' . $receiverId);
+
+            $redirect = $_POST['redirect_to'] ?? 'thread';
+            if ($redirect === 'conversations') {
+                header('Location: index.php?controller=message&action=conversations&id=' . $receiverId);
+            } else {
+                header('Location: index.php?controller=message&action=thread&id=' . $receiverId);
+            }
             exit();
         }
     }

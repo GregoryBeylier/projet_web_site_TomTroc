@@ -9,6 +9,7 @@ class User
     private $pseudo;
     private $profile_photo;
     private $created_at;
+    private $last_message;
 
     public function getId(): ?int
     {
@@ -18,7 +19,7 @@ class User
     public function setId(?int $id): self
     {
         $this->id = $id;
-        
+
         return $this;
     }
 
@@ -30,7 +31,7 @@ class User
     public function setEmail(?string $email): self
     {
         $this->email = $email;
-        
+
         return $this;
     }
 
@@ -42,7 +43,7 @@ class User
     public function setPassword(?string $password): self
     {
         $this->password = $password;
-        
+
         return $this;
     }
 
@@ -54,7 +55,7 @@ class User
     public function setPseudo(?string $pseudo): self
     {
         $this->pseudo = $pseudo;
-        
+
         return $this;
     }
 
@@ -66,7 +67,7 @@ class User
     public function setProfilePhoto(?string $profile_photo): self
     {
         $this->profile_photo = $profile_photo;
-        
+
         return $this;
     }
 
@@ -78,7 +79,18 @@ class User
     public function setCreatedAt(?string $created_at): self
     {
         $this->created_at = $created_at;
-        
+
+        return $this;
+    }
+
+    public function getLastMessage(): ?string
+    {
+        return $this->last_message;
+    }
+
+    public function setLastMessage(?string $last_message): self
+    {
+        $this->last_message = $last_message;
         return $this;
     }
 }

@@ -43,14 +43,32 @@ class MessageManager extends DBConnect
     // Récupère les conversations d'un utilisateur
     public function getConversations($userId)
     {
-        $sql = 'SELECT DISTINCT u.id, u.name, u.first_name, u.pseudo, u.profile_photo FROM user u JOIN message m ON (u.id = m.sender_id OR u.id = m.receiver_id) WHERE u.id = :user_id';
+        $sql = 'SELECT DISTINCT u.id, u.pseudo, u.profile_photo FROM user u JOIN message m ON (u.id = m.sender_id OR u.id = m.receiver_id) WHERE u.id != :user_id AND (m.sender_id = :user_id2 OR m.receiver_id = :user_id3)';
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':user_id', $userId);
+        $stmt->bindValue(':user_id2', $userId);
+        $stmt->bindValue(':user_id3', $userId);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
         $message = $stmt->fetchAll();
 
         return $message;
+    }
+
+    //Récupère le dernier message entre deux utilisateurs
+    public function getLastMessage($userId, $otherId)
+    {
+        $sql = 'SELECT content FROM message 
+            WHERE (sender_id = :user_id AND receiver_id = :other_id) 
+            OR (sender_id = :other_id2 AND receiver_id = :user_id2) 
+            ORDER BY created_at DESC LIMIT 1';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':user_id', $userId);
+        $stmt->bindValue(':user_id2', $userId);
+        $stmt->bindValue(':other_id', $otherId);
+        $stmt->bindValue(':other_id2', $otherId);
+        $stmt->execute();
+        return $stmt->fetchColumn();
     }
 
     // Marque un message comme lu

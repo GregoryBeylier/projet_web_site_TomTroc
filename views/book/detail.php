@@ -36,7 +36,7 @@
                     </a>
                 </div>
             </div>
-            <a href="index.php?controller=message&action=thread&id=<?php echo $book->getUserId(); ?>" class="btn_send_message">Envoyer un message</a>
+            <a href="index.php?controller=message&action=conversations&id=<?php echo $book->getUserId(); ?>" class="btn_send_message">Envoyer un message</a>
         </div>
     </div>
     <?php require __DIR__ . '/../templates/footer.php'; ?>
