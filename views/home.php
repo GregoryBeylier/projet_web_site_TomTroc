@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <title>Accueil - TomTroc</title>
-</head>
-
-<body>
-    <?php require __DIR__ . '/templates/header.php'; ?>
+<?php require __DIR__ . '/templates/header.php'; ?>
 
     <div class="container_home">
         <div class="hero_text">
@@ -87,21 +75,4 @@
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <?php require __DIR__ . '/templates/footer.php'; ?>
-</body>
-
-</html>

@@ -103,9 +103,11 @@ try {
                     require __DIR__ . '/views/404.php';
                     break;
             }
+            break;
         default:
             http_response_code(404);
             require __DIR__ . '/views/404.php';
+            exit();
             break;
     }
 } catch (Exception $e) {

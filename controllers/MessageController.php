@@ -35,6 +35,11 @@ class MessageController
             $otherUser = $userManager->getUserById($otherId);
         }
 
+        foreach ($conversations as $conversation) {
+            $conversation->setLastMessage(
+                $this->messageManager->getLastMessage($userId, $conversation->getId()));
+        }
+
         require __DIR__ . '/../views/message/conversations.php';
     }
 

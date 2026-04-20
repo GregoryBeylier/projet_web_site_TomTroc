@@ -76,7 +76,8 @@ class BookController
             $description = htmlspecialchars($_POST['description']);
             $status = isset($_POST['status']) ? $_POST['status'] : 0;
             $user_id = $_SESSION['user_id'];
-            $picture = 'picture/book/' . $_FILES['picture']['name'];
+            $filename = preg_replace('/\s+/', '_', $_FILES['picture']['name']);
+            $picture = 'picture/book/' . $filename;
             move_uploaded_file($_FILES['picture']['tmp_name'], $picture);
 
             $error = [];
@@ -134,7 +135,8 @@ class BookController
                 return;
             }
             if (!empty($_FILES['picture']['name'])) {
-                $picture = 'picture/book/' . $_FILES['picture']['name'];
+                $filename = preg_replace('/\s+/', '_', $_FILES['picture']['name']);
+                $picture = 'picture/book/' . $filename;
                 move_uploaded_file($_FILES['picture']['tmp_name'], $picture);
             } else {
                 $picture = $book->getPicture();

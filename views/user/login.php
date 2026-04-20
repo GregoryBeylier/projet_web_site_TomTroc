@@ -1,58 +1,37 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php require __DIR__ . '/../templates/header.php'; ?>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connexion - TomTroc</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-</head>
+<div class="container_auth">
 
-<body>
-    <?php require __DIR__ . '/../templates/header.php'; ?>
+    <div class="auth_form">
+        <h1>Connexion</h1>
 
-    <div class="container_auth">
+        <?php if (isset($error['general'])) : ?>
+            <span style="color: red; display: block;"><?php echo $error['general']; ?></span><br>
+        <?php endif; ?>
 
-        <div class="auth_form">
-            <h1>Connexion</h1>
-
-            <?php if (isset($error['general'])) : ?>
-                <span style="color: red; display: block;"><?php echo $error['general']; ?></span><br>
+        <form action="index.php?controller=user&action=login" method="post">
+            <label for="email">Adresse email :</label>
+            <input type="email" id="email" name="email"><br>
+            <?php if (isset($error['email'])) : ?>
+                <span style="color: red; display: block;"><?php echo $error['email']; ?></span><br>
             <?php endif; ?>
 
-            <form action="index.php?controller=user&action=login" method="post">
-                <label for="email">Adresse email :</label>
-                <input type="email" id="email" name="email"><br>
-                <?php if (isset($error['email'])) : ?>
-                    <span style="color: red; display: block;"><?php echo $error['email']; ?></span><br>
-                <?php endif; ?>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password"><br>
+            <?php if (isset($error['password'])) : ?>
+                <span style="color: red; display: block;"><?php echo $error['password']; ?></span><br>
+            <?php endif; ?>
 
+            <button type="submit">Se connecter</button>
+        </form>
 
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password"><br>
-                <?php if (isset($error['password'])) : ?>
-                    <span style="color: red; display: block;"><?php echo $error['password']; ?></span><br>
-                <?php endif; ?>
-
-                <button type="submit">Se connecter</button>
-            </form>
-
-            <p class="register">Pas de compte ?&nbsp;<a href="index.php?controller=user&action=register">Inscrivez-vous</a></p>
-
-        </div>
-
-
-        <div class="auth_form_image">
-            <img src="picture/imageLogin.png" alt="imageLogin.png">
-        </div>
-
+        <p class="register">Pas de compte ?&nbsp;<a href="index.php?controller=user&action=register">Inscrivez-vous</a></p>
 
     </div>
 
-    <?php require __DIR__ . '/../templates/footer.php'; ?>
+    <div class="auth_form_image">
+        <img src="picture/imageLogin.png" alt="imageLogin.png">
+    </div>
 
-</body>
-
-</html>
+</div>
+<?php require __DIR__ . '/../templates/footer.php'; ?>

@@ -1,33 +1,17 @@
-<!DOCTYPE html>
-<html lang="fr">
+ <?php require __DIR__ . '/../templates/header.php'; ?>
+ <p><?= htmlspecialchars($otherUser->getPseudo()) ?></p>
+ <?php foreach ($messages as $message): ?>
+     <div>
+         <p><strong><?= htmlspecialchars($message->getContent()) ?></strong></p>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messagerie</title>
-    <link rel="stylesheet" href="css/style.css">
+         <p><small><?= htmlspecialchars($message->getCreatedAt()) ?></small></p>
+     </div>
+ <?php endforeach; ?>
 
-</head>
+ <form action="index.php?controller=message&action=send" method="post">
+     <input type="hidden" name="receiver_id" value="<?= $otherId ?>">
+     <textarea name="content" required></textarea>
+     <button type="submit">Envoyer</button>
+ </form>
 
-<body>
-    <?php require __DIR__ . '/../templates/header.php'; ?>
-    <p><?= htmlspecialchars($otherUser->getPseudo()) ?></p>
-    <?php foreach ($messages as $message): ?>
-        <div>
-            <p><strong><?= htmlspecialchars($message->getContent()) ?></strong></p>
-
-            <p><small><?= htmlspecialchars($message->getCreatedAt()) ?></small></p>
-        </div>
-    <?php endforeach; ?>
-
-    <form action="index.php?controller=message&action=send" method="post">
-        <input type="hidden" name="receiver_id" value="<?= $otherId ?>">
-        <textarea name="content" required></textarea>
-        <button type="submit">Envoyer</button>
-    </form>
-
-    <?php require __DIR__ . '/../templates/footer.php'; ?>
-
-</body>
-
-</html>
+ <?php require __DIR__ . '/../templates/footer.php'; ?>

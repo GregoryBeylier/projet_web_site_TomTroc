@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profil - TomTroc</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <script src="js/script.js"></script>
-</head>
-
-<body>
-
-    <?php require __DIR__ . '/../templates/header.php'; ?>
+ <?php require __DIR__ . '/../templates/header.php'; ?>
 
     <div class="container_profile">
         <h1>Mon compte</h1>
@@ -24,7 +9,7 @@
                 <?php
                 $photo = !empty($user->getProfilePhoto()) ? $user->getProfilePhoto() : 'picture/users/default_profile.png';
                 ?>
-                <img class="photo_profile " src="<?php echo htmlspecialchars($photo); ?>" alt="Photo de profil" />
+                <img class="photo_profile " src="<?php echo htmlspecialchars($photo); ?>" alt="Photo de profil">
 
                 <form action="index.php?controller=user&action=updateProfilePhoto" method="post" enctype="multipart/form-data">
 
@@ -38,7 +23,7 @@
 
                 </form>
 
-                <hr />
+                <hr>
 
                 <div class="pseudo">
                     <p><?php echo strip_tags(htmlspecialchars_decode($user->getPseudo())); ?></p>
@@ -98,11 +83,11 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <br><br>
+                
                 <tbody>
                     <?php foreach ($books as $book): ?>
                         <tr>
-                            <td><img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="Couverture du livre" width="100" /></td>
+                            <td><img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="Couverture du livre" width="100"></td>
                             <td><?php echo strip_tags(htmlspecialchars_decode($book->getTitle())); ?></td>
                             <td><?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></td>
                             <td class="td_description"><?php echo mb_strimwidth(strip_tags(htmlspecialchars_decode($book->getDescription())), 0, 100, '...'); ?></td>
@@ -118,10 +103,4 @@
         </div>
     </div>
 
-
-
     <?php require __DIR__ . '/../templates/footer.php'; ?>
-
-</body>
-
-</html>

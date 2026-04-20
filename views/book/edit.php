@@ -1,54 +1,38 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php require __DIR__ . '/../templates/header.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Éditer un livre</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <script src="js/script.js" defer></script>
-</head>
+<div class="container_edit_book">
+    <a href="index.php?controller=book&action=detail&id=<?php echo $book->getId(); ?>" class="btn_back">← retour</a>
+    <h1>Modifier les informations</h1>
 
-<body>
-    <?php require __DIR__ . '/../templates/header.php'; ?>
+    <div class="edit_book_layout">
+        <div class="edit_book_left">
+            <p class="edit_label">Photo</p>
+            <img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="couverture">
+            <a href="#" id="modifier_photo">Modifier la photo</a>
+        </div>
 
-    <div class="container_edit_book">
-        <a href="index.php?controller=book&action=detail&id=<?php echo $book->getId(); ?>" class="btn_back">← retour</a>
-        <h1>Modifier les informations</h1>
+        <div class="edit_book_right">
+            <form action="index.php?controller=book&action=edit&id=<?php echo $book->getId(); ?>" method="post" enctype="multipart/form-data">
+                <input type="file" id="edit_picture" name="picture">
+                <label>Titre</label>
+                <input type="text" name="title" value="<?php echo htmlspecialchars_decode($book->getTitle()); ?>" required>
 
-        <div class="edit_book_layout">
-            <div class="edit_book_left">
-                <p class="edit_label">Photo</p>
-                <img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="couverture">
-                <a href="#" id="modifier_photo">Modifier la photo</a>
-            </div>
+                <label>Auteur</label>
+                <input type="text" name="author" value="<?php echo htmlspecialchars_decode($book->getAuthor()); ?>" required>
 
-            <div class="edit_book_right">
-                <form action="index.php?controller=book&action=edit&id=<?php echo $book->getId(); ?>" method="post" enctype="multipart/form-data">
-                    <input type="file" id="edit_picture" name="picture">
-                    <label>Titre</label>
-                    <input type="text" name="title" value="<?php echo htmlspecialchars_decode($book->getTitle()); ?>" required>
+                <label>Commentaire</label>
+                <textarea name="description" rows="8"><?php echo htmlspecialchars_decode($book->getDescription()); ?></textarea>
 
-                    <label>Auteur</label>
-                    <input type="text" name="author" value="<?php echo htmlspecialchars_decode($book->getAuthor()); ?>" required>
+                <label>Disponibilité</label>
+                <select name="status">
+                    <option value="1" <?php if ($book->getStatus() == 1) echo 'selected'; ?>>disponible</option>
+                    <option value="0" <?php if ($book->getStatus() == 0) echo 'selected'; ?>>indisponible</option>
+                </select>
 
-                    <label>Commentaire</label>
-                    <textarea name="description" rows="8"><?php echo htmlspecialchars_decode($book->getDescription()); ?></textarea>
-
-                    <label>Disponibilité</label>
-                    <select name="status">
-                        <option value="1" <?php if ($book->getStatus() == 1) echo 'selected'; ?>>disponible</option>
-                        <option value="0" <?php if ($book->getStatus() == 0) echo 'selected'; ?>>indisponible</option>
-                    </select>
-
-                    <button type="submit" class="btn_valider">Valider</button>
-                </form>
-            </div>
+                <button type="submit" class="btn_valider">Valider</button>
+            </form>
         </div>
     </div>
+</div>
 
-    <?php require __DIR__ . '/../templates/footer.php'; ?>
-</body>
-
-</html>
+<?php require __DIR__ . '/../templates/footer.php'; ?>
