@@ -125,6 +125,14 @@ class BookController
             $status = isset($_POST['status']) ? $_POST['status'] : 0;
 
             $book = $this->bookManager->getBookById($id);
+
+            //Vérification propriétaire
+
+            if ($book->getUserId() != $_SESSION['user_id']) {
+                http_response_code(403);
+                require __DIR__ . '/../views/404.php';
+                return;
+            }
             if (!empty($_FILES['picture']['name'])) {
                 $picture = 'picture/book/' . $_FILES['picture']['name'];
                 move_uploaded_file($_FILES['picture']['tmp_name'], $picture);
@@ -156,9 +164,13 @@ class BookController
                 echo 'Erreur lors de la modification du livre';
             }
         } else {
-            // afficher le formulaire de modification de livre
             $book = $this->bookManager->getBookById($id);
             if ($book) {
+                if ($book->getUserId() != $_SESSION['user_id']) {
+                    http_response_code(403);
+                    require __DIR__ . '/../views/404.php';
+                    return;
+                }
                 require __DIR__ . '/../views/book/edit.php';
             } else {
                 echo 'Livre non trouvé';
@@ -174,9 +186,17 @@ class BookController
         }
 
         $id = $_GET['id'] ?? null;
+
         if ($id) {
+            $book = $this->bookManager->getBookById($id);
+
+            if ($book->getUserId() != $_SESSION['user_id']) {
+                http_response_code(403);
+                require __DIR__ . '/../views/404.php';
+                return;
+            }
+
             if ($this->bookManager->deleteBook($id)) {
-                // rediriger vers le profil
                 header('Location: index.php?controller=user&action=profile');
                 exit();
             } else {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 08, 2026 at 04:43 PM
+-- Generation Time: Apr 20, 2026 at 08:15 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.4.12
 
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `book` (
   `id` int NOT NULL,
-  `title` varchar(250) NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `description` text NOT NULL,
-  `author` varchar(250) NOT NULL,
-  `picture` varchar(250) NOT NULL,
+  `author` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `picture` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `status` tinyint NOT NULL,
   `user_id` int NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -61,12 +61,10 @@ CREATE TABLE `message` (
 
 CREATE TABLE `user` (
   `id` int NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `first_name` varchar(250) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `password` varchar(250) NOT NULL,
-  `pseudo` varchar(150) NOT NULL,
-  `profile_photo` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `pseudo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `profile_photo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
