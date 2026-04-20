@@ -40,6 +40,10 @@ try {
                     $bookController = new BookController();
                     $bookController->deleteBook();
                     break;
+                default:
+                    http_response_code(404);
+                    require __DIR__ . '/views/404.php';
+                    break;
             }
             break;
 
@@ -73,6 +77,10 @@ try {
                     $userController = new UserController();
                     $userController->showProfile();
                     break;
+                default:
+                    http_response_code(404);
+                    require __DIR__ . '/views/404.php';
+                    break;
             }
             break;
 
@@ -90,7 +98,15 @@ try {
                     $messageController = new MessageController();
                     $messageController->send();
                     break;
+                default:
+                    http_response_code(404);
+                    require __DIR__ . '/views/404.php';
+                    break;
             }
+        default:
+            http_response_code(404);
+            require __DIR__ . '/views/404.php';
+            break;
     }
 } catch (Exception $e) {
     echo 'Error: ' . $e->getMessage();
