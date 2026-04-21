@@ -23,6 +23,9 @@
          <?php foreach ($books as $book) : ?>
              <a class="book_card_list" href="index.php?controller=book&action=detail&id=<?php echo $book->getId(); ?>">
                  <img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="couverture">
+                 <?php if ($book->getStatus() == 0) : ?>
+                     <span class="badge_non_dispo">non dispo</span>
+                 <?php endif; ?>
                  <div class="book_card_list_info">
                      <p class="book_title"><?php echo htmlspecialchars($book->getTitle(), ENT_NOQUOTES); ?></p>
                      <p class="book_author"><?php echo htmlspecialchars($book->getAuthor(), ENT_NOQUOTES); ?></p>

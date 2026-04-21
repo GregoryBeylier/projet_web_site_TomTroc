@@ -14,10 +14,10 @@
              <form action="index.php?controller=user&action=updateProfilePhoto" method="post" enctype="multipart/form-data">
 
                  <label for="profile_picture" class="sr-only">Photo de profil</label>
-                 <input type="file" id="profile_picture" name="picture">
+                 <input type="file" id="profile_picture" name="picture" aria-label="Photo de profil">
 
                  <?php if (isset($error['image'])) : ?>
-                     <span style="color: red; display: block;"><?php echo $error['image']; ?></span>
+                     <span class="warning"><?php echo $error['image']; ?></span>
                  <?php endif; ?>
 
                  <a href="#" id="modifier">modifier</a>

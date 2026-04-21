@@ -37,7 +37,7 @@ class BookController
         if ($search) {
             $books = $this->bookManager->searchBooks($search); // Appeler une méthode de recherche dans le BookManager
         } else {
-            $books = $this->bookManager->getAvailableBook(); // Afficher tous les livres disponibles si aucun terme de recherche n'est fourni
+            $books = $this->bookManager->getAllBooks(); // Afficher tous les livres
         }
 
         require __DIR__ . '/../views/book/list.php';

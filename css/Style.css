@@ -163,7 +163,7 @@ a {
 .hero_image_credit {
   font-style: italic;
   font-size: 12px;
-  color: #6E6E6E ;
+  color: #6e6e6e;
   text-align: right;
   margin-top: 12px;
   padding-bottom: 101px;
@@ -238,7 +238,7 @@ a {
   font-family: "inter";
   font-size: 14px;
   font-weight: 400;
-  color: #767676 ;
+  color: #767676;
   padding-left: 14px;
   padding-bottom: 8px;
 }
@@ -247,7 +247,7 @@ a {
   font-family: "inter";
   font-size: 10px;
   font-weight: 400;
-  color: #767676 ;
+  color: #767676;
   padding-left: 14px;
   padding-bottom: 22px;
 }
@@ -315,7 +315,7 @@ a {
   border: 2px solid #007a47;
   padding: 22px 38px;
   border-radius: 10px;
-   font-family: "inter";
+  font-family: "inter";
   font-weight: 500;
   font-size: 16px;
 }
@@ -374,7 +374,7 @@ a {
   font-family: "inter";
   font-weight: 400;
   font-size: 12px;
-  color: #6E6E6E ;
+  color: #6e6e6e;
   font-style: italic;
   padding-left: 10px;
   margin: 0;
@@ -457,7 +457,7 @@ a {
 }
 
 .warning {
-  color: #E60000; 
+  color: #e60000;
   display: block;
 }
 
@@ -553,8 +553,8 @@ a {
 .btn_profile_outline {
   display: inline-block;
   background-color: #f5f3ef;
-  color: #00804D;
-  border: 2px solid #00804D;
+  color: #00804d;
+  border: 2px solid #00804d;
   padding: 22px 38px;
   border-radius: 10px;
   width: 150px;
@@ -733,7 +733,7 @@ a {
 }
 
 .badge_indisponible {
-  background-color: #DB3939;
+  background-color: #db3939;
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
@@ -751,7 +751,7 @@ a {
 .personal_library .btn_delete {
   font-family: "inter";
   font-size: 14px;
-  color: #D32727;
+  color: #d32727;
   text-decoration: underline;
 }
 
@@ -878,8 +878,8 @@ a {
 .btn_message {
   display: inline-block;
   background-color: #f5f3ef;
-  color: #00804D;
-  border: 2px solid #00804D;
+  color: #00804d;
+  border: 2px solid #00804d;
   padding: 16px 32px;
   border-radius: 10px;
   font-family: "inter";
@@ -904,19 +904,19 @@ a {
 .breadcrumb {
   padding: 16px 85px;
   font-size: 12px;
-  color: #595959 ;
+  color: #595959;
   font-family: "Inter", sans-serif;
   background-color: #f5f3ef;
   padding-left: 150px;
 }
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 
 .breadcrumb a {
@@ -1017,7 +1017,7 @@ a {
 }
 
 .book_owner:hover a {
-  color: #00AC66;
+  color: #00ac66;
 }
 
 .book_owner a {
@@ -1267,6 +1267,22 @@ a {
   height: 324px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  position: relative;
+}
+
+.badge_non_dispo {
+  position: absolute;
+  top: 16px;
+  right: 11px;
+  background-color: #db3939;
+  color: #fff;
+  padding: 2px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 2;
+  font-family: "inter";
+  font-weight: 500;
 }
 
 .book_card_list img {
@@ -1397,7 +1413,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6E6E6E;
+  color: #6e6e6e;
   font-size: 14px;
 }
 
@@ -1462,7 +1478,6 @@ a {
 .thread_messages::-webkit-scrollbar {
   display: none;
 }
-
 
 .message_received_wrapper {
   display: flex;

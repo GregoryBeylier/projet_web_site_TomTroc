@@ -11,7 +11,7 @@
     <div class="book_detail_right">
         <div class="book_detail_right_top">
             <h1><?php echo htmlspecialchars($book->getTitle(), ENT_NOQUOTES); ?></h1>
-            <p class="book_author_detail">par <?php echo htmlspecialchars($book->getAuthor(), ENT_NOQUOTES); ?></p>
+            <p class="book_author_detail">Par <?php echo htmlspecialchars($book->getAuthor(), ENT_NOQUOTES); ?></p>
             <hr>
             <p class="book_description_label">DESCRIPTION</p>
             <p class="book_description"><?php echo nl2br(htmlspecialchars($book->getDescription(), ENT_NOQUOTES)); ?></p>

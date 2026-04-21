@@ -16,7 +16,7 @@ class BookManager extends DBConnect
     // Méthode pour récupérer tous les livres
     public function getAllBooks()
     {
-        $sql = 'SELECT * FROM book';
+        $sql = 'SELECT book.*, user.pseudo FROM book JOIN user ON book.user_id = user.id ORDER BY created_at DESC';
         $stmt = $this->pdo->query($sql);
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
         $books = $stmt->fetchAll();
@@ -35,17 +35,6 @@ class BookManager extends DBConnect
         $books = $stmt->fetchAll();
 
 
-
-        return $books;
-    }
-
-    // Méthode pour récupérer les livres disponibles (status = 1)
-    public function getAvailableBook()
-    {
-        $sql = 'SELECT book.*, user.pseudo FROM book JOIN user ON book.user_id = user.id WHERE book.status = 1';
-        $stmt = $this->pdo->query($sql);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
-        $books = $stmt->fetchALL();
 
         return $books;
     }
@@ -120,7 +109,7 @@ class BookManager extends DBConnect
     {
         $searchTerm = '%' . $search . '%'; // Ajouter des jokers pour la recherche partielle
 
-        $sql = 'SELECT * FROM book WHERE title LIKE :search AND status = 1'; // Rechercher uniquement les livres disponibles
+        $sql = 'SELECT * FROM book WHERE title LIKE :search'; // Rechercher uniquement les livres disponibles
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':search', $searchTerm);
         $stmt->execute();
