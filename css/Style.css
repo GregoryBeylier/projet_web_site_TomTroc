@@ -616,7 +616,7 @@ a {
 .profile_top hr {
   width: 242px;
   margin-top: 48px;
-  margin-bottom: 30;
+  margin-bottom: 30px;
 }
 
 .pseudo {
@@ -984,7 +984,6 @@ a {
   min-height: auto;
   margin-bottom: 32px;
   font-family: "Inter";
-  font-weight: 14px;
   font-weight: 400;
 }
 
