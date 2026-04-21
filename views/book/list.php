@@ -8,7 +8,8 @@
              <input type="hidden" name="action" value="availableBooks">
              <div class="search_wrapper">
                  <img src="picture/search-icon.png" alt="rechercher" class="search_icon">
-                 <input type="search" name="search" placeholder="Rechercher un livre" value="<?php echo htmlspecialchars($search ?? ''); ?>">
+                 <label for="search" class="sr-only">Rechercher un livre</label>
+                 <input type="search" id="search" name="search" placeholder="Rechercher un livre" value="<?php echo htmlspecialchars($search ?? ''); ?>">
                  <button type="submit">Rechercher</button>
              </div>
          </form>

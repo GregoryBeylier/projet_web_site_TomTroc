@@ -6,25 +6,25 @@
          <h3>Inscription</h3>
          <form action="index.php?controller=user&action=register" method="post" enctype="multipart/form-data">
              <?php if (isset($error['general'])) : ?>
-                 <span style="color: red; display: block;"><?php echo $error['general']; ?></span><br>
+                 <span class="warning"><?php echo $error['general']; ?></span><br>
              <?php endif; ?>
 
              <label for="pseudo">Pseudo :</label>
              <input type="text" id="pseudo" name="pseudo"><br>
              <?php if (isset($error['pseudo'])) : ?>
-                 <span style="color: red; display: block;"><?php echo $error['pseudo']; ?></span>
+                 <span class="warning"><?php echo $error['pseudo']; ?></span>
              <?php endif; ?>
 
              <label for="email">Adresse email :</label>
              <input type="email" id="email" name="email"><br>
              <?php if (isset($error['email'])) : ?>
-                 <span style="color: red; display: block;"><?php echo $error['email']; ?></span>
+                 <span class="warning"><?php echo $error['email']; ?></span>
              <?php endif; ?>
 
              <label for="password">Mot de passe :</label>
              <input type="password" id="password" name="password"><br>
              <?php if (isset($error['password'])) : ?>
-                 <span style="color: red; display: block;"><?php echo $error['password']; ?></span>
+                 <span class="warning"><?php echo $error['password']; ?></span>
              <?php endif; ?>
 
 

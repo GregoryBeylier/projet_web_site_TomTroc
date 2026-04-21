@@ -25,7 +25,7 @@ body {
 
 .container_404 p {
   font-size: 18px;
-  color: #a6a6a6;
+  color: #696969;
 }
 
 /* ========= */
@@ -163,7 +163,7 @@ a {
 .hero_image_credit {
   font-style: italic;
   font-size: 12px;
-  color: #a6a6a6;
+  color: #6E6E6E ;
   text-align: right;
   margin-top: 12px;
   padding-bottom: 101px;
@@ -171,7 +171,7 @@ a {
 
 .btn_decouvrir {
   display: inline-block;
-  background-color: #00ac66;
+  background-color: #238551;
   color: white;
   border-radius: 10px;
   border: none;
@@ -182,7 +182,7 @@ a {
 }
 
 .btn_decouvrir:hover {
-  background-color: #008a50;
+  background-color: #005c35;
   cursor: pointer;
   transition:
     padding-right 0.3s ease,
@@ -238,7 +238,7 @@ a {
   font-family: "inter";
   font-size: 14px;
   font-weight: 400;
-  color: #a6a6a6;
+  color: #767676 ;
   padding-left: 14px;
   padding-bottom: 8px;
 }
@@ -247,7 +247,7 @@ a {
   font-family: "inter";
   font-size: 10px;
   font-weight: 400;
-  color: #a6a6a6;
+  color: #767676 ;
   padding-left: 14px;
   padding-bottom: 22px;
 }
@@ -311,10 +311,13 @@ a {
 .btn_outline {
   display: inline-block;
   background-color: #f5f3ef;
-  color: #00ac66;
-  border: 2px solid #00ac66;
+  color: #007a47;
+  border: 2px solid #007a47;
   padding: 22px 38px;
   border-radius: 10px;
+   font-family: "inter";
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .btn_outline:hover {
@@ -371,7 +374,7 @@ a {
   font-family: "inter";
   font-weight: 400;
   font-size: 12px;
-  color: #a6a6a6;
+  color: #6E6E6E ;
   font-style: italic;
   padding-left: 10px;
   margin: 0;
@@ -425,7 +428,7 @@ a {
   font-weight: 400;
   font-size: 14px;
   padding-bottom: 10px;
-  color: #a6a6a6;
+  color: #707070;
 }
 
 .auth_form p {
@@ -441,7 +444,7 @@ a {
 
 .auth_form button {
   display: inline-block;
-  background-color: #00ac66;
+  background-color: #238551;
   color: white;
   border-radius: 10px;
   border: none;
@@ -453,13 +456,18 @@ a {
   margin-top: 32px;
 }
 
+.warning {
+  color: #E60000; 
+  display: block;
+}
+
 .auth_form a {
   text-decoration: underline;
   color: black;
 }
 
 .auth_form button:hover {
-  background-color: #008a50;
+  background-color: #005c35;
   cursor: pointer;
   transition:
     padding-right 0.3s ease,
@@ -545,12 +553,14 @@ a {
 .btn_profile_outline {
   display: inline-block;
   background-color: #f5f3ef;
-  color: #00ac66;
-  border: 2px solid #00ac66;
+  color: #00804D;
+  border: 2px solid #00804D;
   padding: 22px 38px;
   border-radius: 10px;
   width: 150px;
   margin-bottom: 37px;
+  font-family: "inter";
+  font-size: 16px;
 }
 
 .btn_profile_outline:hover {
@@ -567,7 +577,7 @@ a {
   font-weight: 400;
   font-size: 14px;
   padding-bottom: 10px;
-  color: #a6a6a6;
+  color: #757575;
 }
 
 .profile_card p {
@@ -619,7 +629,7 @@ a {
   font-family: "inter";
   font-weight: 400;
   font-size: 14px;
-  color: #a6a6a6;
+  color: #757575;
 }
 
 .profile_top a {
@@ -715,7 +725,7 @@ a {
 }
 
 .badge_disponible {
-  background-color: #2eac69;
+  background-color: #238551;
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
@@ -723,7 +733,7 @@ a {
 }
 
 .badge_indisponible {
-  background-color: #e57373;
+  background-color: #DB3939;
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
@@ -741,7 +751,7 @@ a {
 .personal_library .btn_delete {
   font-family: "inter";
   font-size: 14px;
-  color: #e57373;
+  color: #D32727;
   text-decoration: underline;
 }
 
@@ -868,8 +878,8 @@ a {
 .btn_message {
   display: inline-block;
   background-color: #f5f3ef;
-  color: #00ac66;
-  border: 2px solid #00ac66;
+  color: #00804D;
+  border: 2px solid #00804D;
   padding: 16px 32px;
   border-radius: 10px;
   font-family: "inter";
@@ -894,14 +904,23 @@ a {
 .breadcrumb {
   padding: 16px 85px;
   font-size: 12px;
-  color: #a6a6a6;
+  color: #595959 ;
   font-family: "Inter", sans-serif;
   background-color: #f5f3ef;
   padding-left: 150px;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+}
+
 .breadcrumb a {
-  color: #a6a6a6;
+  color: #595959;
   text-decoration: none;
 }
 
@@ -946,7 +965,7 @@ a {
 }
 
 .book_author_detail {
-  color: #a6a6a6;
+  color: #737373;
   font-size: 14px;
   margin: 8px 0;
   padding: 0;
@@ -974,7 +993,7 @@ a {
   font-family: "Inter", sans-serif;
   font-size: 10px;
   font-weight: 600;
-  color: #a6a6a6;
+  color: #737373;
   text-transform: uppercase;
   margin: 0px 0px 16px 0px;
 }
@@ -990,6 +1009,8 @@ a {
   transition:
     padding-right 0.3s ease,
     background-color 0.3s ease;
+  font-family: "inter";
+  font-size: 14px;
 }
 
 .book_owner:hover {
@@ -997,7 +1018,7 @@ a {
 }
 
 .book_owner:hover a {
-  color: #2eac69;
+  color: #00AC66;
 }
 
 .book_owner a {
@@ -1018,7 +1039,7 @@ a {
 
 .btn_send_message {
   display: block;
-  background-color: #2eac69;
+  background-color: #238551;
   color: white;
   text-align: center;
   padding: 16px;
@@ -1033,7 +1054,7 @@ a {
 }
 
 .btn_send_message:hover {
-  background-color: #27965b;
+  background-color: #005c35;
   color: white;
   cursor: pointer;
   transition:
@@ -1085,7 +1106,7 @@ a {
 
 .edit_label {
   margin: 0px;
-  color: #a6a6a6;
+  color: #757575;
   font-size: 14px;
   font-weight: 400;
   padding-top: 56px;
@@ -1128,7 +1149,7 @@ a {
 
 .edit_book_right label {
   font-size: 14px;
-  color: #a6a6a6;
+  color: #757575;
   font-family: "Inter", sans-serif;
 }
 
@@ -1150,7 +1171,7 @@ a {
 }
 
 .btn_valider {
-  background-color: #2eac69;
+  background-color: #238551;
   color: white;
   border: none;
   padding: 16px;
@@ -1162,7 +1183,7 @@ a {
 }
 
 .btn_valider:hover {
-  background-color: #008a50;
+  background-color: #005c35;
   cursor: pointer;
   transition:
     padding-right 0.3s ease,
@@ -1269,14 +1290,14 @@ a {
 
 .book_card_list_info .book_author {
   font-size: 14px;
-  color: #a6a6a6;
+  color: #707070;
   margin: 0 0 8px 0;
   padding: 0;
 }
 
 .book_card_list_info .book_user {
   font-size: 12px;
-  color: #a6a6a6;
+  color: #707070;
   margin: 23px 0 0 0;
   padding: 0;
 }
@@ -1377,7 +1398,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #a6a6a6;
+  color: #6E6E6E;
   font-size: 14px;
 }
 
@@ -1390,13 +1411,13 @@ a {
 
 .conversation_time {
   font-size: 12px;
-  color: #a6a6a6;
+  color: #737373;
   flex-shrink: 0;
 }
 
 .conversation_preview {
   font-size: 12px;
-  color: #a6a6a6;
+  color: #737373;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

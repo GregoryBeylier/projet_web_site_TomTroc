@@ -6,20 +6,20 @@
         <h1>Connexion</h1>
 
         <?php if (isset($error['general'])) : ?>
-            <span style="color: red; display: block;"><?php echo $error['general']; ?></span><br>
+            <span class="warning"><?php echo $error['general']; ?></span><br>
         <?php endif; ?>
 
         <form action="index.php?controller=user&action=login" method="post">
             <label for="email">Adresse email :</label>
             <input type="email" id="email" name="email"><br>
             <?php if (isset($error['email'])) : ?>
-                <span style="color: red; display: block;"><?php echo $error['email']; ?></span><br>
+                <span class="warning"><?php echo $error['email']; ?></span><br>
             <?php endif; ?>
 
             <label for="password">Mot de passe :</label>
             <input type="password" id="password" name="password"><br>
             <?php if (isset($error['password'])) : ?>
-                <span style="color: red; display: block;"><?php echo $error['password']; ?></span><br>
+                <span class="warning"><?php echo $error['password']; ?></span><br>
             <?php endif; ?>
 
             <button type="submit">Se connecter</button>
