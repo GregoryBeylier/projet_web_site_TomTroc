@@ -12,11 +12,11 @@
                     alt="photo" class="conversation_avatar">
                 <div class="conversation_info">
                     <div class="conversation_info_top">
-                        <span class="conversation_pseudo"><?= htmlspecialchars($conversation->getPseudo()) ?></span>
+                        <span class="conversation_pseudo"><?= htmlspecialchars($conversation->getPseudo(), ENT_NOQUOTES) ?></span>
                         <span class="conversation_time">15:43</span>
                     </div>
                     <span class="conversation_preview">
-                        <?= htmlspecialchars($conversation->getLastMessage() ?? '') ?>
+                        <?= htmlspecialchars($conversation->getLastMessage() ?? '', ENT_NOQUOTES) ?>
                     </span>
                 </div>
             </a>
@@ -29,7 +29,7 @@
             <div class="thread_header">
                 <img src="/<?= htmlspecialchars($otherUser->getProfilePhoto() ?? 'picture/users/default_profile.png') ?>"
                     alt="photo" class="conversation_avatar">
-                <span class="thread_pseudo"><?= htmlspecialchars($otherUser->getPseudo()) ?></span>
+                <span class="thread_pseudo"><?= htmlspecialchars($otherUser->getPseudo(), ENT_NOQUOTES) ?></span>
             </div>
 
             <div class="thread_messages">
@@ -43,13 +43,13 @@
                                     <span class="message_time"><?= date('H:i d.m', strtotime($message->getCreatedAt())) ?></span>
                                 </div>
                                 <div class="message_content">
-                                    <p><?= htmlspecialchars($message->getContent()) ?></p>
+                                    <p><?= htmlspecialchars($message->getContent(), ENT_NOQUOTES) ?></p>
                                 </div>
                             </div>
                         <?php else: ?>
                             <div class="message_content">
                                 <span class="message_time"><?= date('H:i d.m', strtotime($message->getCreatedAt())) ?></span>
-                                <p><?= htmlspecialchars($message->getContent()) ?></p>
+                                <p><?= htmlspecialchars($message->getContent(), ENT_NOQUOTES) ?></p>
                             </div>
                         <?php endif; ?>
                     </div>

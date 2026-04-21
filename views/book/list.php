@@ -23,9 +23,9 @@
              <a class="book_card_list" href="index.php?controller=book&action=detail&id=<?php echo $book->getId(); ?>">
                  <img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="couverture">
                  <div class="book_card_list_info">
-                     <p class="book_title"><?php echo strip_tags(htmlspecialchars_decode($book->getTitle())); ?></p>
-                     <p class="book_author"><?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></p>
-                     <p class="book_user">Vendu par <?php echo strip_tags(htmlspecialchars_decode($book->getPseudo() ?? '')); ?></p>
+                     <p class="book_title"><?php echo htmlspecialchars($book->getTitle(), ENT_NOQUOTES); ?></p>
+                     <p class="book_author"><?php echo htmlspecialchars($book->getAuthor(), ENT_NOQUOTES); ?></p>
+                     <p class="book_user">Vendu par <?php echo htmlspecialchars($book->getPseudo() ?? '', ENT_NOQUOTES); ?></p>
                  </div>
              </a>
          <?php endforeach; ?>

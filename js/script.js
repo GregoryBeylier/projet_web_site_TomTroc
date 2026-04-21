@@ -1,35 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Profil
-    var modifier = document.getElementById('modifier');
-    var profilePicture = document.getElementById('profile_picture');
-    
-    if (modifier && profilePicture) {
-        modifier.addEventListener('click', function(e) {
-            e.preventDefault();
-            profilePicture.click();
-        });
+document.addEventListener("DOMContentLoaded", function () {
+  // Profil
+  var modifier = document.getElementById("modifier");
+  var profilePicture = document.getElementById("profile_picture");
 
-        profilePicture.addEventListener('change', function() {
-            this.form.submit();
-        });
-    }
+  if (modifier && profilePicture) {
+    modifier.addEventListener("click", function (e) {
+      e.preventDefault();
+      profilePicture.click();
+    });
 
-    // Edit livre
-    var modifierPhoto = document.getElementById('modifier_photo');
-    var editPicture = document.getElementById('edit_picture');
+    profilePicture.addEventListener("change", function () {
+      this.form.submit();
+    });
+  }
 
-    if (modifierPhoto && editPicture) {
-        modifierPhoto.addEventListener('click', function(e) {
-            e.preventDefault();
-            editPicture.click();
-        });
+  // Edit livre
+  var modifierPhoto = document.getElementById("modifier_photo");
+  var editPicture = document.getElementById("edit_picture");
 
-        editPicture.addEventListener('change', function() {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                document.querySelector('.edit_book_left img').src = e.target.result;
-            };
-            reader.readAsDataURL(this.files[0]);
-        });
-    }
+  if (modifierPhoto && editPicture) {
+    modifierPhoto.addEventListener("click", function (e) {
+      e.preventDefault();
+      editPicture.click();
+    });
+
+    editPicture.addEventListener("change", function () {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        document.querySelector(".edit_book_left img").src = e.target.result;
+      };
+      reader.readAsDataURL(this.files[0]);
+    });
+  }
+  const messages = document.querySelector(".thread_messages");
+  if (messages) {
+    setTimeout(() => {
+      messages.scrollTop = messages.scrollHeight;
+    }, 100);
+  }
 });

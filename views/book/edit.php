@@ -15,13 +15,13 @@
             <form action="index.php?controller=book&action=edit&id=<?php echo $book->getId(); ?>" method="post" enctype="multipart/form-data">
                 <input type="file" id="edit_picture" name="picture">
                 <label>Titre</label>
-                <input type="text" name="title" value="<?php echo htmlspecialchars_decode($book->getTitle()); ?>" required>
+                <input type="text" name="title" value="<?php echo htmlspecialchars($book->getTitle()); ?>" required>
 
                 <label>Auteur</label>
-                <input type="text" name="author" value="<?php echo htmlspecialchars_decode($book->getAuthor()); ?>" required>
+                <input type="text" name="author" value="<?php echo htmlspecialchars($book->getAuthor()); ?>" required>
 
                 <label>Commentaire</label>
-                <textarea name="description" rows="8"><?php echo htmlspecialchars_decode($book->getDescription()); ?></textarea>
+                <textarea name="description" rows="8"><?php echo htmlspecialchars($book->getDescription()); ?></textarea>
 
                 <label>Disponibilité</label>
                 <select name="status">

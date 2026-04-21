@@ -69,7 +69,7 @@ class MessageController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $senderId = $_SESSION['user_id']; // ID de l'utilisateur connecté
             $receiverId = (int) $_POST['receiver_id'] ?? null; // ID du destinataire
-            $content = htmlspecialchars($_POST['content'] ?? null); // Contenu du message
+            $content = htmlspecialchars($_POST['content'] ?? null, ENT_NOQUOTES); // Contenu du message
             $sender = $this->messageManager->sendMessage($senderId, $receiverId, $content);
 
             $redirect = $_POST['redirect_to'] ?? 'thread';

@@ -8,7 +8,7 @@
 
             <hr>
             <div class="pseudo">
-                <p><?php echo strip_tags(htmlspecialchars_decode($user->getPseudo())); ?></p>
+                <p><?php echo htmlspecialchars($user->getPseudo(), ENT_NOQUOTES); ?></p>
             </div>
             <p class="membre">Membre depuis
                 <?php
@@ -46,9 +46,9 @@
                 <?php foreach ($books as $book): ?>
                     <tr>
                         <td><img src="<?php echo htmlspecialchars($book->getPicture()); ?>" alt="Couverture"></td>
-                        <td><?php echo strip_tags(htmlspecialchars_decode($book->getTitle())); ?></td>
-                        <td><?php echo strip_tags(htmlspecialchars_decode($book->getAuthor())); ?></td>
-                        <td class="td_description"><?php echo mb_strimwidth(strip_tags(htmlspecialchars_decode($book->getDescription())), 0, 100, '...'); ?></td>
+                        <td><?php echo htmlspecialchars($book->getTitle(), ENT_NOQUOTES); ?></td>
+                        <td><?php echo htmlspecialchars($book->getAuthor(), ENT_NOQUOTES); ?></td>
+                        <td class="td_description"><?php echo mb_strimwidth(htmlspecialchars($book->getDescription(), ENT_NOQUOTES), 0, 100, '...'); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

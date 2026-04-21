@@ -71,9 +71,9 @@ class BookController
 
         // recuperer les données du formulaire d'ajout de livre
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $title = htmlspecialchars($_POST['title']);
-            $author = htmlspecialchars($_POST['author']);
-            $description = htmlspecialchars($_POST['description']);
+            $title = htmlspecialchars($_POST['title'], ENT_NOQUOTES);
+            $author = htmlspecialchars($_POST['author'], ENT_NOQUOTES);
+            $description = htmlspecialchars($_POST['description'], ENT_NOQUOTES);
             $status = isset($_POST['status']) ? $_POST['status'] : 0;
             $user_id = $_SESSION['user_id'];
             $filename = preg_replace('/\s+/', '_', $_FILES['picture']['name']);
@@ -120,9 +120,9 @@ class BookController
 
         // Récupérer les données du formulaire de modification de livre
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $title = htmlspecialchars($_POST['title']);
-            $author = htmlspecialchars($_POST['author']);
-            $description = htmlspecialchars($_POST['description']);
+            $title = htmlspecialchars($_POST['title'], ENT_NOQUOTES);
+            $author = htmlspecialchars($_POST['author'], ENT_NOQUOTES);
+            $description = htmlspecialchars($_POST['description'], ENT_NOQUOTES);
             $status = isset($_POST['status']) ? $_POST['status'] : 0;
 
             $book = $this->bookManager->getBookById($id);

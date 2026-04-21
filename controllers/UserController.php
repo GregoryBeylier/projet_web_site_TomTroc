@@ -18,9 +18,9 @@ class UserController
     {
         // traiter les données du formulaire d'inscription
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = htmlspecialchars($_POST['email']);
-            $password = htmlspecialchars($_POST['password']);
-            $pseudo = htmlspecialchars($_POST['pseudo']);
+            $email = htmlspecialchars($_POST['email'], ENT_NOQUOTES);
+            $password = $_POST['password'];
+            $pseudo = htmlspecialchars($_POST['pseudo'], ENT_NOQUOTES);
             $image = $_FILES['image'] ?? null;
 
             $error = []; // tableau pour stocker les message d'erreurs 
@@ -78,8 +78,8 @@ class UserController
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = htmlspecialchars($_POST['email']);
-            $password = htmlspecialchars($_POST['password']);
+            $email = htmlspecialchars($_POST['email'], ENT_NOQUOTES);
+            $password = $_POST['password'];
 
             $error = [];
 
@@ -159,9 +159,9 @@ class UserController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_SESSION['user_id'];
-            $email = htmlspecialchars($_POST['email']);
-            $password = htmlspecialchars($_POST['password']);
-            $pseudo = htmlspecialchars($_POST['pseudo']);
+            $email = htmlspecialchars($_POST['email'], ENT_NOQUOTES);
+            $password = $_POST['password'];
+            $pseudo = htmlspecialchars($_POST['pseudo'], ENT_NOQUOTES);
             $user = $this->userManager->getUserById($id);
             $profile_photo = $user->getProfilePhoto();
             $error = [];
