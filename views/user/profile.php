@@ -81,7 +81,7 @@
                      <th>Auteur</th>
                      <th>Description</th>
                      <th>Disponibilité</th>
-                     <th>Actions</th>
+                     <th>Actions <a class="btn_edit" href="index.php?controller=book&action=add">+</a></th>
                  </tr>
              </thead>
 

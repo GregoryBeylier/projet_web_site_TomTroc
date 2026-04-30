@@ -754,7 +754,19 @@ a {
   color: #d32727;
   text-decoration: underline;
 }
+th a.btn_edit {
+  margin-left: 8px;
+  font-size: 12px;
+  color: #757575;
+  text-decoration: none;
+  font-weight: 400;
+  text-decoration: none !important;
+  color: #757575 !important;
+}
 
+th a.btn_edit:hover {
+  color: #238551;
+}
 /* ===== PROFIL PUBLIC ===== */
 
 .container_show_profile {
@@ -1187,6 +1199,10 @@ a {
   transition:
     padding-right 0.3s ease,
     background-color 0.3s ease;
+}
+
+#picture {
+  display: none;
 }
 
 /* ========== */

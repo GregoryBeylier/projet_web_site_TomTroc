@@ -32,6 +32,22 @@ document.addEventListener("DOMContentLoaded", function () {
       reader.readAsDataURL(this.files[0]);
     });
   }
+
+  // Ajouter un livre - prévisualisation photo
+  var picture = document.getElementById("picture");
+  var previewPicture = document.getElementById("preview_picture");
+
+  if (picture && previewPicture) {
+    picture.addEventListener("change", function () {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        previewPicture.src = e.target.result;
+      };
+      reader.readAsDataURL(this.files[0]);
+    });
+  }
+
+  // Scroll messagerie
   const messages = document.querySelector(".thread_messages");
   if (messages) {
     setTimeout(() => {
