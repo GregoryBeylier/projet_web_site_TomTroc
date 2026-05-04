@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <a href="index.php?controller=message&action=send&id=<?php echo $user->getId(); ?>" class="btn_message">Écrire un message</a>
+        <a href="index.php?controller=message&action=conversations&id=<?php echo $user->getId(); ?>" class="btn_message">Écrire un message</a>
 
     </div>
 
