@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 21, 2026 at 04:31 PM
+-- Generation Time: May 04, 2026 at 09:09 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.4.12
 
@@ -16,9 +16,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-DROP TABLE IF EXISTS `message`;
-DROP TABLE IF EXISTS `book`;
-DROP TABLE IF EXISTS `user`;
 
 --
 -- Database: `tomtroc`
@@ -46,7 +43,7 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `title`, `description`, `author`, `picture`, `status`, `user_id`, `created_at`) VALUES
-(1, 'The Kinkfolk Table', 'J\'ai récemment plongé dans les pages de \'The Kinfolk Table\' et j\'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d\'une simple collection de recettes ; il célèbre l\'art de partager des moments authentiques autour de la table. \r\n\r\nLes photographies magnifiques et le ton chaleureux captivent dès le départ, transportant le lecteur dans un voyage à travers des recettes et des histoires qui mettent en avant la beauté de la simplicité et de la convivialité. \r\n\r\nChaque page est une invitation à ralentir, à savourer et à créer des souvenirs durables avec les êtres chers. \r\n\r\n\'The Kinfolk Table\' incarne parfaitement l\'esprit de la cuisine et de la camaraderie, et il est certain que ce livre trouvera une place spéciale dans le cœur de tout amoureux de la cuisine et des rencontres inspirantes.', 'Nathan Williams', 'picture/book/the_kinfolk.png', 1, 1, '2026-04-21 16:59:11'),
+(1, 'The Kinkfolk Tablex', 'J\'ai récemment plongé dans les pages de \'The Kinfolk Table\' et j\'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d\'une simple collection de recettes ; il célèbre l\'art de partager des moments authentiques autour de la table. \r\n\r\nLes photographies magnifiques et le ton chaleureux captivent dès le départ, transportant le lecteur dans un voyage à travers des recettes et des histoires qui mettent en avant la beauté de la simplicité et de la convivialité. \r\n\r\nChaque page est une invitation à ralentir, à savourer et à créer des souvenirs durables avec les êtres chers. \r\n\r\n\'The Kinfolk Table\' incarne parfaitement l\'esprit de la cuisine et de la camaraderie, et il est certain que ce livre trouvera une place spéciale dans le cœur de tout amoureux de la cuisine et des rencontres inspirantes.', 'Nathan Williams', 'picture/book/Livre.jpg', 0, 1, '2026-04-21 16:59:11'),
 (2, 'Esther', 'Dans un village reculé des Vosges, Esther découvre un vieux carnet dissimulé sous les lattes du grenier de sa grand-mère. Les pages jaunies racontent l\'histoire d\'une forêt qui aurait englouti tout un hameau au XVIIIe siècle — une légende que personne n\'ose plus évoquer. Poussée par la curiosité, elle s\'enfonce seule entre les arbres centenaires, là où les oiseaux se taisent et où le temps semble suspendu. Ce qu\'elle y trouve bouleversera à jamais ce qu\'elle croyait savoir sur sa propre famille.\r\nUn roman envoûtant, entre mystère, nature et mémoire.', 'Alabester', 'picture/book/esther.jpg', 1, 1, '2026-04-21 17:02:45'),
 (3, 'Milk and honey', 'Un recueil de textes courts et de fragments poétiques qui explore quatre étapes d\'une vie de femme : la souffrance, l\'amour, la rupture et la guérison. À travers des mots simples et une écriture sans détour, l\'autrice met en lumière les blessures intimes, les violences silencieuses, mais aussi la force tranquille de celles qui se relèvent. Chaque page est une respiration, une confidence, un éclat de lumière après l\'orage.\r\n\r\nUn livre à garder près de soi, à relire dans les moments de doute, à offrir à celles et ceux qui en ont besoin.', 'Rupi Kaur', 'picture/book/milk_honney.jpg', 1, 1, '2026-04-21 17:05:46'),
 (4, 'Psalms', 'Un recueil intime de prières modernes, de méditations et de chants silencieux, où la foi se mêle au doute et la lumière à l\'ombre. À travers des textes courts et ciselés, l\'autrice revisite la forme ancienne du psaume pour parler de nos vies contemporaines : la solitude urbaine, l\'amour imparfait, la quête de sens dans un monde pressé.\r\n\r\nChaque page est une halte, une respiration, un murmure adressé à soi-même autant qu\'au ciel.\r\n\r\nUn livre à lire lentement, au lever du jour ou à la tombée de la nuit, comme on feuillette un vieux livre de prières hérité d\'une aïeule.', 'Alabaster', 'picture/book/Psalms.jpg', 0, 1, '2026-04-21 17:15:58'),
@@ -103,7 +100,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `password`, `pseudo`, `profile_photo`, `created_at`) VALUES
-(1, 'nathalie@exemple.com', '$2y$12$anW4k.p0TCQpfEL2VG4UYuU5SSWENmDXJW4vQBK37L17BtAVM4pju', 'Nathalire', 'picture/users/PP.png', '2026-04-21 16:51:32'),
+(1, 'nathalie@exemple.com', '$2y$12$anW4k.p0TCQpfEL2VG4UYuU5SSWENmDXJW4vQBK37L17BtAVM4pju', 'Nathalire', 'picture/users/Livre.jpg', '2026-04-21 16:51:32'),
 (2, 'alexandre@exemple.com', '$2y$12$hCJt3Zv8O3Q12Ip/8rrO/e4SIqsqzQlEyHahDSFjmlSQdcEpj//oa', 'Alexlecture', 'picture/users/photo.png', '2026-04-21 17:24:39');
 
 --
@@ -114,13 +111,16 @@ INSERT INTO `user` (`id`, `email`, `password`, `pseudo`, `profile_photo`, `creat
 -- Indexes for table `book`
 --
 ALTER TABLE `book`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_book_user_id` (`user_id`);
 
 --
 -- Indexes for table `message`
 --
 ALTER TABLE `message`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_message_sender_id` (`sender_id`),
+  ADD KEY `idx_message_receiver_id` (`receiver_id`);
 
 --
 -- Indexes for table `user`
@@ -136,19 +136,36 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `book`
+--
+ALTER TABLE `book`
+  ADD CONSTRAINT `fk_book_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `message`
+--
+ALTER TABLE `message`
+  ADD CONSTRAINT `fk_message_receiver` FOREIGN KEY (`receiver_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_message_sender` FOREIGN KEY (`sender_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

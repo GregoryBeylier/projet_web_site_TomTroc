@@ -137,6 +137,13 @@ class BookController
             if (!empty($_FILES['picture']['name'])) {
                 $filename = preg_replace('/\s+/', '_', $_FILES['picture']['name']);
                 $picture = 'picture/book/' . $filename;
+
+                // Supprimer l'ancienne photo si elle existe 
+                $oldPicture = $book->getPicture();
+                if (!empty($oldPicture) && file_exists($oldPicture)) {
+                    unlink($oldPicture);
+                }
+
                 move_uploaded_file($_FILES['picture']['tmp_name'], $picture);
             } else {
                 $picture = $book->getPicture();

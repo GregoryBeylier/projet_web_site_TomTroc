@@ -210,12 +210,25 @@ class UserController
 
             if (!empty($_FILES['picture']['name'])) {
                 // photo uploadée
-                $profile_photo = 'picture/users/' . $_FILES['picture']['name'];
+                $filename = preg_replace('/\s+/', '_', $_FILES['picture']['name']);
+                $profile_photo = 'picture/users/' . $filename;
+
+                // Supprimer l'ancienne photo si elle existe et c'est pas la photo par défaut
+                $oldPicture = $user->getProfilePhoto();
+                if (
+                    !empty($oldPicture)
+                    && $oldPicture !== 'picture/users/default_profile.png'
+                    && file_exists($oldPicture)
+                ) {
+                    unlink($oldPicture);
+                }
+
                 move_uploaded_file($_FILES['picture']['tmp_name'], $profile_photo);
             } else {
                 // Photo par défaut
                 $profile_photo = $user->getProfilePhoto() ?: 'picture/users/default_profile.png';
             }
+
             $this->userManager->updatePhoto($id, $profile_photo);
             header('Location: index.php?controller=user&action=profile');
             exit();
