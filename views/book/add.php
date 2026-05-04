@@ -10,12 +10,13 @@
             <div class="edit_book_left">
                 <p class="edit_label">Photo</p>
                 <img id="preview_picture" src="https://placehold.co/488x488?text=Ajouter+une+photo" alt="Aperçu du livre">
-                <input type="file" id="picture" name="picture" required>
                 <label for="picture" id="modifier_photo">Choisir une photo</label>
             </div>
 
             <div class="edit_book_right">
                 <form action="index.php?controller=book&action=add" method="post" enctype="multipart/form-data">
+                    <input type="file" id="picture" name="picture" required>
+
                     <label for="title">Titre</label>
                     <input type="text" id="title" name="title" required>
 

@@ -27,7 +27,7 @@ class BookManager extends DBConnect
     // Méthode pour récupérer les livres d'un utilisateur spécifique
     public function getBooksByUserId($user_id)
     {
-        $sql = 'SELECT * FROM book WHERE user_id = :user_id';
+        $sql = 'SELECT * FROM book WHERE user_id = :user_id ORDER BY created_at DESC';
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
